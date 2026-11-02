@@ -1,10 +1,10 @@
 <mxfile host="app.diagrams.net" agent="ChatGPT">
   <diagram id="componentes-rede-academica" name="Diagrama de Componentes">
-    <mxGraphModel dx="2049" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+    <mxGraphModel dx="1704" dy="939" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="mPqH5iemBN_l-48IT9Z9-121" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E5B84C;strokeWidth=2;dashed=1;dashPattern=7 5;endArrow=open;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="mPqH5iemBN_l-48IT9Z9-99" value="">
+        <mxCell id="mPqH5iemBN_l-48IT9Z9-121" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#E5B84C;strokeWidth=2;dashed=1;dashPattern=7 5;endArrow=open;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" value="">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="222" y="950" />
@@ -77,7 +77,7 @@
           <mxGeometry height="28" width="745" x="405.00101449275394" y="712.9975362318842" as="geometry" />
         </mxCell>
         <mxCell id="mPqH5iemBN_l-48IT9Z9-172" parent="1" style="html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;rounded=0;fillColor=#FFF0CF;strokeColor=#C99B3D;strokeWidth=1.6;fontColor=#18384A;spacing=5;" value="&lt;div style=&quot;font-size:11px;color:#637083&quot;&gt;«component»&lt;/div&gt;&lt;div style=&quot;font-size:15px;font-weight:bold&quot;&gt;Tradução de Conteúdo&lt;/div&gt;&lt;div style=&quot;font-size:11px&quot;&gt;Bios, mensagens, posts, descrições e guias&lt;/div&gt;" vertex="1">
-          <mxGeometry height="65" width="350" x="665.0010144927539" y="752.9975362318842" as="geometry" />
+          <mxGeometry height="65" width="350" x="625.0010144927539" y="752.9975362318842" as="geometry" />
         </mxCell>
         <mxCell id="mPqH5iemBN_l-48IT9Z9-173" parent="1" style="html=1;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;rounded=0;fillColor=#EDE3FC;strokeColor=#9982C3;strokeWidth=1.6;fontColor=#18384A;spacing=5;" value="&lt;div style=&quot;font-size:11px;color:#637083&quot;&gt;«component»&lt;/div&gt;&lt;div style=&quot;font-size:15px;font-weight:bold&quot;&gt;Repositórios de Dados&lt;/div&gt;&lt;div style=&quot;font-size:11px&quot;&gt;Leitura e persistência das informações&lt;/div&gt;" vertex="1">
           <mxGeometry height="95" width="220" x="1245.001014492754" y="336.9975362318842" as="geometry" />
