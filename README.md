@@ -1,48 +1,62 @@
-[README.md](https://github.com/user-attachments/files/34387710/README.md)
+[README.md](https://github.com/user-attachments/files/34390401/README.md)
 # Rede Social Acadêmica Internacional
 
-**Grupo 5 — Engenharia de Requisitos**  
-**Projeto:** Sistema de Apoio à Internacionalização
+**Conectando pessoas, culturas e conhecimento no ambiente universitário.**
 
-## Sobre o projeto
+> Projeto acadêmico do **Grupo 5**, desenvolvido na disciplina de **Engenharia de Requisitos**, com o tema *Sistema de Apoio à Internacionalização*.
 
-A Rede Social Acadêmica Internacional é uma proposta de plataforma para aproximar estudantes locais, intercambistas e professores, facilitando a comunicação e a integração no ambiente universitário.
+## A proposta
 
-A ideia é reunir, em um único espaço, conexões acadêmicas, grupos de estudo, publicações, materiais e informações úteis sobre a universidade. Para ajudar estudantes de diferentes países, a plataforma também prevê a escolha do idioma da interface e a tradução de conteúdos textuais, como mensagens e publicações.
+Chegar a uma universidade em outro país envolve mais do que conhecer as salas de aula. É preciso encontrar pessoas, compreender a rotina acadêmica, descobrir oportunidades e superar barreiras de comunicação.
 
-## Funcionalidades propostas
+A **Rede Social Acadêmica Internacional** é uma proposta de plataforma web que aproxima **estudantes intercambistas, estudantes locais e professores** em um mesmo ambiente. O objetivo é facilitar a adaptação à universidade e incentivar conexões acadêmicas, colaboração e intercâmbio cultural.
 
-- Criar e gerenciar perfis e conexões acadêmicas.
-- Trocar mensagens e compartilhar publicações e materiais.
-- Participar de grupos de estudo e comunidades.
-- Consultar eventos, guias e informações de integração ao campus.
-- Acompanhar atividades, prazos e notas.
-- Selecionar o idioma da interface e traduzir conteúdos quando necessário.
+## O que a plataforma propõe
 
-## Entregáveis da Sprint 1
+| Área | Recursos previstos |
+| --- | --- |
+| **Conexões acadêmicas** | Perfis, busca por curso e interesses e conexões entre estudantes. |
+| **Comunicação e colaboração** | Mensagens, publicações, compartilhamento de materiais e grupos de estudo. |
+| **Integração ao campus** | Guias de adaptação, eventos e recomendações de locais e atividades. |
+| **Acompanhamento acadêmico** | Consulta de atividades, prazos e notas, além de recursos de gestão para professores. |
+| **Idiomas e tradução** | Seleção do idioma da interface e tradução de conteúdos textuais sob demanda. |
 
-Os materiais da fase de elicitação de requisitos e modelagem inicial são organizados no repositório:
+### Um espaço pensado para diferentes idiomas
 
-1. Documento de Visão
-2. Identificação de Stakeholders
-3. Roteiro e resultados de entrevistas
-4. Requisitos funcionais e não funcionais
-5. Regras de negócio
-6. Backlog priorizado
-7. Diagramas UML: casos de uso, componentes e implantação
+A internacionalização está no centro da proposta. Além de permitir a escolha do idioma da interface, a plataforma prevê a tradução de mensagens, publicações e outros conteúdos textuais quando o usuário precisar. A intenção é reduzir barreiras linguísticas sem limitar a interação entre pessoas de diferentes países.
 
-## Diagramas UML
+## Documentação do projeto
 
-Os diagramas também estão disponíveis em formato editável (`.drawio`) na pasta [`diagramas-uml`](diagramas-uml/).
+A especificação do sistema está organizada em documentos que descrevem sua visão, os públicos envolvidos, os requisitos, as regras de negócio e as prioridades de desenvolvimento.
 
-### Diagrama de Casos de Uso
+| Documento | Conteúdo |
+| --- | --- |
+| [Documento de Visão](docs/documento-de-visao.md) | Problema, objetivos, público beneficiado e escopo da proposta. |
+| [Stakeholders](docs/stakeholders.md) | Partes interessadas e sua relação com o sistema. |
+| [Requisitos](docs/requisitos.md) | Requisitos funcionais e não funcionais da plataforma. |
+| [Regras de Negócio](docs/regras-de-negocio.md) | Restrições e condições que orientam o comportamento do sistema. |
+| [Backlog Inicial Priorizado](docs/backlog.md) | Funcionalidades organizadas por prioridade. |
+
+## Modelagem UML
+
+Os diagramas apresentam diferentes perspectivas do sistema. Os arquivos editáveis (`.drawio`) estão disponíveis na pasta [`diagramas-uml`](diagramas-uml/).
+
+### Casos de uso
+
+Representa as principais interações de estudantes e professores com a plataforma.
 
 ![Diagrama de Casos de Uso](diagramas-uml/CD_UML.png)
 
-### Diagrama de Componentes
+### Componentes
+
+Apresenta a organização lógica dos módulos e suas relações.
 
 ![Diagrama de Componentes](diagramas-uml/Componentes_UML.png)
 
-### Diagrama de Implantação
+### Implantação
+
+Ilustra uma proposta de distribuição da aplicação entre cliente, servidor e banco de dados.
 
 ![Diagrama de Implantação](diagramas-uml/Implantação_UML.png)
+
+---
