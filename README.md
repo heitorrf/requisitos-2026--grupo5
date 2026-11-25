@@ -1,62 +1,91 @@
-[README.md](https://github.com/user-attachments/files/34390401/README.md)
-# Rede Social Acadêmica Internacional
+# UniShare — Rede Social Acadêmica Internacional
 
-**Conectando pessoas, culturas e conhecimento no ambiente universitário.**
+<p align="center"><img src="docs/assets/logo-unishare.png" alt="Logomarca UniShare" width="560"></p>
 
-> Projeto acadêmico do **Grupo 5**, desenvolvido na disciplina de **Engenharia de Requisitos**, com o tema *Sistema de Apoio à Internacionalização*.
+**Conectando pessoas. Compartilhando conhecimento.**
 
-## A proposta
+Projeto acadêmico do **Grupo 5**, curso de Análise e Desenvolvimento de Sistemas (ADS), Universidade de Fortaleza (Unifor), disciplina de Requisitos e Modelagem de Sistemas. Tema: Sistema de Apoio à Internacionalização.
 
-Chegar a uma universidade em outro país envolve mais do que conhecer as salas de aula. É preciso encontrar pessoas, compreender a rotina acadêmica, descobrir oportunidades e superar barreiras de comunicação.
+## Sobre o projeto
 
-A **Rede Social Acadêmica Internacional** é uma proposta de plataforma web que aproxima **estudantes intercambistas, estudantes locais e professores** em um mesmo ambiente. O objetivo é facilitar a adaptação à universidade e incentivar conexões acadêmicas, colaboração e intercâmbio cultural.
+Estudar em outro país exige conhecer pessoas, compreender a rotina universitária, encontrar informações de adaptação e superar barreiras linguísticas. O UniShare propõe uma rede social acadêmica que aproxima estudantes locais, intercambistas e professores em um ambiente de colaboração e integração cultural.
 
-## O que a plataforma propõe
+A proposta combina a dinâmica de comunicação do Twitter/X com a descoberta de pessoas e oportunidades do LinkedIn, acrescida de ferramentas de organização acadêmica e tradução sob demanda. A plataforma complementa, mas não substitui, sistemas acadêmicos oficiais.
 
-| Área | Recursos previstos |
+<p align="center"><img src="prototipo/mockups/feed.png" alt="Mockup conceitual da interface inicial do UniShare" width="950"></p>
+
+*Proposta visual estática com dados ilustrativos; não é uma captura de aplicação em funcionamento.*
+
+## Público e funcionalidades
+
+Estudantes locais e intercambistas participam da rede, enquanto professores autorizados organizam suas turmas. Administradores atuam na governança da plataforma. Visitantes e candidatos a professor têm acesso condicionado ao seu papel.
+
+| Módulo | Responsabilidade |
 | --- | --- |
-| **Conexões acadêmicas** | Perfis, busca por curso e interesses e conexões entre estudantes. |
-| **Comunicação e colaboração** | Mensagens, publicações, compartilhamento de materiais e grupos de estudo. |
-| **Integração ao campus** | Guias de adaptação, eventos e recomendações de locais e atividades. |
-| **Acompanhamento acadêmico** | Consulta de atividades, prazos e notas, além de recursos de gestão para professores. |
-| **Idiomas e tradução** | Seleção do idioma da interface e tradução de conteúdos textuais sob demanda. |
+| M01 — Identidade e Perfis | Cadastro, autenticação, perfis e solicitação de autorização docente |
+| M02 — Rede Social e Comunicação | Busca, conexões, mensagens, publicações e grupos de estudo |
+| M03 — Integração Cultural e Descoberta | Guia de adaptação, locais, eventos e recomendações |
+| M04 — Gestão Acadêmica | Turmas, materiais, atividades, entregas, notas internas e comunicados |
+| M05 — Acessibilidade Linguística | Seleção do idioma e tradução textual sob demanda |
+| M06 — Administração e Moderação | Acessos, autorização docente, catálogos, denúncias e exclusão |
 
-### Um espaço pensado para diferentes idiomas
+## Documentação
 
-A internacionalização está no centro da proposta. Além de permitir a escolha do idioma da interface, a plataforma prevê a tradução de mensagens, publicações e outros conteúdos textuais quando o usuário precisar. A intenção é reduzir barreiras linguísticas sem limitar a interação entre pessoas de diferentes países.
-
-## Documentação do projeto
-
-A especificação do sistema está organizada em documentos que descrevem sua visão, os públicos envolvidos, os requisitos, as regras de negócio e as prioridades de desenvolvimento.
-
-| Documento | Conteúdo |
+| P1 — Elicitação e modelagem | P2 — Especificação e prototipação |
 | --- | --- |
-| [Documento de Visão](docs/documento-de-visao.md) | Problema, objetivos, público beneficiado e escopo da proposta. |
-| [Stakeholders](docs/stakeholders.md) | Partes interessadas e sua relação com o sistema. |
-| [Requisitos](docs/requisitos.md) | Requisitos funcionais e não funcionais da plataforma. |
-| [Regras de Negócio](docs/regras-de-negocio.md) | Restrições e condições que orientam o comportamento do sistema. |
-| [Backlog Inicial Priorizado](docs/backlog.md) | Funcionalidades organizadas por prioridade. |
+| [Visão da Demanda v4.1](docs/01-visao-demanda.md) | [SRS v1.1 — estrutura IEEE 830](docs/srs/SRS-UniShare-v1.1.md) |
+| [Stakeholders](docs/02-stakeholders.md) | [Especificações dos 45 casos de uso](docs/casos-de-uso/README.md) |
+| [Roteiro de entrevistas](docs/elicitacao/roteiro-entrevistas.md) | [Matriz de rastreabilidade](docs/validacao/matriz-rastreabilidade.md) |
+| [Resultados de elicitação e situação das entrevistas](docs/elicitacao/resultados-entrevistas.md) | [Revisão de consistência](docs/validacao/revisao-consistencia.md) |
+| [Requisitos funcionais](docs/requisitos/requisitos-funcionais.md) | [Registro de verificações](docs/validacao/verificacoes.md) |
+| [Requisitos não funcionais](docs/requisitos/requisitos-nao-funcionais.md) | [Wireframes e mockups](prototipo/README.md) |
+| [Regras de negócio](docs/requisitos/regras-de-negocio.md) | [Modelagem UML atualizada](diagramas-uml/README.md) |
+| [Backlog priorizado](gestao/backlog.md) | [Acompanhamento P1/P2](gestao/entregas-p1-p2.md) |
+| [Glossário](docs/requisitos/glossario.md) | — |
 
 ## Modelagem UML
 
-Os diagramas apresentam diferentes perspectivas do sistema. Os arquivos editáveis (`.drawio`) estão disponíveis na pasta [`diagramas-uml`](diagramas-uml/).
+| Diagrama | Visualização | Fonte editável |
+| --- | --- | --- |
+| Visão geral dos casos de uso | [SVG](diagramas-uml/casos-de-uso/visao-geral.svg) | [PlantUML](diagramas-uml/casos-de-uso/visao-geral.puml) |
+| Casos de uso por módulo | [Índice dos seis módulos](diagramas-uml/README.md) | [Fontes](diagramas-uml/casos-de-uso/) |
+| Hierarquia dos atores | [SVG](diagramas-uml/casos-de-uso/atores.svg) | [PlantUML](diagramas-uml/casos-de-uso/atores.puml) |
+| Componentes | [SVG](diagramas-uml/componentes/componentes.svg) | [PlantUML](diagramas-uml/componentes/componentes.puml) |
+| Implantação | [SVG](diagramas-uml/implantacao/implantacao.svg) | [PlantUML](diagramas-uml/implantacao/implantacao.puml) |
 
-### Casos de uso
+O contexto e os diagramas modulares complementam a visão geral. As imagens SVG são prévias; as fontes PlantUML representam a proposta UML editável.
 
-Representa as principais interações de estudantes e professores com a plataforma.
+## Prototipação
 
-![Diagrama de Casos de Uso](diagramas-uml/CD_UML.png)
+A [documentação visual](prototipo/README.md) reúne dez wireframes e dez mockups, associados aos casos de uso. A identidade visual utiliza azul e roxo, navegação lateral, feed central e perfis acadêmicos. As imagens não implementam fluxos; os elementos ilustrativos fora do escopo são registrados no índice de prototipação.
 
-### Componentes
+## Gestão do projeto
 
-Apresenta a organização lógica dos módulos e suas relações.
+[Kanban](https://github.com/users/heitorrf/projects/1/views/1) · [Issues](https://github.com/heitorrf/requisitos-2026--grupo5/issues) · [Milestones](https://github.com/heitorrf/requisitos-2026--grupo5/milestones)
 
-![Diagrama de Componentes](diagramas-uml/Componentes_UML.png)
+| Sprint | Marco | Foco |
+| --- | --- | --- |
+| 1 | M1 | Elicitação, requisitos e UML inicial |
+| 2 | M2 | SRS, consistência e prototipação |
+| 3 | M3 | Pitch final (fora deste pacote) |
 
-### Implantação
+A documentação P1/P2 está preparada para revisão. As entrevistas reais não foram comprovadas; o repositório contém roteiro e registro da limitação. O pacote apresenta prototipação estática, devendo ser confirmada com o professor a dispensa de navegação prevista no enunciado original. A situação efetiva das issues depende do GitHub Projects.
 
-Ilustra uma proposta de distribuição da aplicação entre cliente, servidor e banco de dados.
+## Organização
 
-![Diagrama de Implantação](diagramas-uml/Implantação_UML.png)
+```text
+docs/            Visão, stakeholders, elicitação, requisitos, CDUs, SRS e validação
+diagramas-uml/   Diagramas e fontes de modelagem
+gestao/          Backlog e acompanhamento de entregas
+prototipo/       Wireframes e mockups estáticos
+```
 
----
+## Referências
+
+- [LAPIS — guia metodológico, templates e exemplos](https://github.com/marcelobezerra-dotcom/Lapis-unifor).
+- Orientações P1 e P2 da disciplina (estrutura SRS solicitada: IEEE 830).
+- Twitter/X e LinkedIn — referências conceituais de interação e interface, não integrações.
+
+## Equipe
+
+**Grupo 5 — ADS / Unifor.** A identificação nominal dos integrantes deve ser completada pelo grupo antes da entrega.

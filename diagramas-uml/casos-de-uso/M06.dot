@@ -1,0 +1,22 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A4 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nAdministrador da Plataforma"];
+A7 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Acadêmico"];
+subgraph cluster_s {label="UniShare — M06: Administração e Moderação"; color="#5877a8"; style="rounded";
+CDU38 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-38\nGerenciar Usuários e Acessos"];
+CDU39 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-39\nAnalisar Solicitação de Perfil Docente"];
+CDU40 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-40\nManter Catálogo de Locais"];
+CDU41 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-41\nManter Catálogos de Apoio"];
+CDU42 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-42\nDenunciar Conteúdo"];
+CDU43 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-43\nTratar Denúncias"];
+CDU44 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-44\nBloquear Usuário"];
+CDU45 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-45\nTratar Solicitação de Exclusão de Conta"];
+}
+A4 -> CDU38 [dir=none];
+A4 -> CDU39 [dir=none];
+A4 -> CDU40 [dir=none];
+A4 -> CDU41 [dir=none];
+A7 -> CDU42 [dir=none];
+A4 -> CDU43 [dir=none];
+A7 -> CDU44 [dir=none];
+A4 -> CDU45 [dir=none];
+}

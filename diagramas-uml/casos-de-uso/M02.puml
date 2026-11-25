@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+rectangle "UniShare — M02: Rede Social e Comunicação" {
+  usecase "CDU-09\nPesquisar Usuários" as CDU09
+  usecase "CDU-10\nGerenciar Conexões" as CDU10
+  usecase "CDU-11\nTrocar Mensagens" as CDU11
+  usecase "CDU-12\nConsultar Publicações" as CDU12
+  usecase "CDU-13\nManter Publicação" as CDU13
+  usecase "CDU-14\nInteragir com Publicações" as CDU14
+  usecase "CDU-15\nManter Grupo de Estudo" as CDU15
+  usecase "CDU-16\nPesquisar Grupos de Estudo" as CDU16
+  usecase "CDU-17\nParticipar de Grupo de Estudo" as CDU17
+}
+A7 -- CDU09
+A7 -- CDU10
+A7 -- CDU11
+A7 -- CDU12
+A7 -- CDU13
+A7 -- CDU14
+A7 -- CDU15
+A7 -- CDU16
+A7 -- CDU17
+@enduml

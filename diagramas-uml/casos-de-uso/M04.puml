@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+actor "Professor" as A3
+actor "Estudante" as A8 <<abstrato>>
+rectangle "UniShare — M04: Gestão Acadêmica" {
+  usecase "CDU-22\nManter Turma" as CDU22
+  usecase "CDU-23\nConsultar Turmas" as CDU23
+  usecase "CDU-24\nSolicitar Participação em Turma" as CDU24
+  usecase "CDU-25\nGerenciar Participantes da Turma" as CDU25
+  usecase "CDU-26\nManter Material Acadêmico" as CDU26
+  usecase "CDU-27\nConsultar Materiais Acadêmicos" as CDU27
+  usecase "CDU-28\nManter Atividade" as CDU28
+  usecase "CDU-29\nConsultar Atividades" as CDU29
+  usecase "CDU-30\nSubmeter Atividade" as CDU30
+  usecase "CDU-31\nAvaliar Entregas" as CDU31
+  usecase "CDU-32\nConsultar Desempenho Individual" as CDU32
+  usecase "CDU-33\nAcompanhar Desempenho da Turma" as CDU33
+  usecase "CDU-34\nManter Comunicado" as CDU34
+  usecase "CDU-35\nConsultar Comunicados" as CDU35
+}
+A3 -- CDU22
+A8 -- CDU23
+A3 -- CDU23
+A8 -- CDU24
+A3 -- CDU25
+A3 -- CDU26
+A8 -- CDU27
+A3 -- CDU27
+A3 -- CDU28
+A8 -- CDU29
+A3 -- CDU29
+A8 -- CDU30
+A3 -- CDU31
+A8 -- CDU32
+A3 -- CDU33
+A3 -- CDU34
+A8 -- CDU35
+A3 -- CDU35
+@enduml

@@ -1,0 +1,7 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+subgraph cluster_client {label="«node» Dispositivo do usuário"; color="#5877a8"; style=rounded; B [shape=note,label="«artifact»\nNavegador web"];}
+subgraph cluster_app {label="«node» Servidor de aplicação"; color="#5877a8"; style=rounded; UI [shape=note,label="«artifact»\nInterface web (HTML/CSS/JS)"]; API [shape=note,label="«artifact»\nAPI UniShare — M01 a M06"]; AD [shape=note,label="«artifact»\nAdaptadores de tradução e e-mail"]; UI -> API [style=dashed,label="requisições"]; API -> AD [style=dashed];}
+subgraph cluster_data {label="«node» Servidor de dados"; color="#5877a8"; style=rounded; DB [shape=cylinder,label="Banco de dados"]; FS [shape=note,label="«artifact»\nArmazenamento de anexos"];}
+T [shape=box,style=rounded,label="«externo»\nServiço de Tradução"]; E [shape=box,style=rounded,label="«externo»\nServiço de E-mail"];
+B -> UI [dir=none,label="HTTPS"]; API -> DB [dir=none,label="conexão privada autenticada"]; API -> FS [dir=none]; AD -> T [dir=none,label="HTTPS / texto mínimo"]; AD -> E [dir=none,label="HTTPS / mensagem transacional"];
+}

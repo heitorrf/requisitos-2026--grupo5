@@ -1,0 +1,2129 @@
+{
+  "actors": {
+    "AT-01": "Estudante Local",
+    "AT-02": "Estudante Intercambista",
+    "AT-03": "Professor",
+    "AT-04": "Administrador da Plataforma",
+    "AT-05": "Serviço de Tradução",
+    "AT-06": "Visitante",
+    "AT-07": "Usuário Acadêmico",
+    "AT-08": "Estudante",
+    "AT-09": "Serviço de E-mail",
+    "AT-10": "Usuário Autenticado",
+    "AT-11": "Candidato a Professor"
+  },
+  "modules": [
+    {
+      "id": "M01",
+      "name": "Identidade e Perfis",
+      "first": 1,
+      "last": 8
+    },
+    {
+      "id": "M02",
+      "name": "Rede Social e Comunicação",
+      "first": 9,
+      "last": 17
+    },
+    {
+      "id": "M03",
+      "name": "Integração Cultural e Descoberta",
+      "first": 18,
+      "last": 21
+    },
+    {
+      "id": "M04",
+      "name": "Gestão Acadêmica",
+      "first": 22,
+      "last": 35
+    },
+    {
+      "id": "M05",
+      "name": "Acessibilidade Linguística",
+      "first": 36,
+      "last": 37
+    },
+    {
+      "id": "M06",
+      "name": "Administração e Moderação",
+      "first": 38,
+      "last": 45
+    }
+  ],
+  "cases": [
+    {
+      "n": 1,
+      "f": "F-01",
+      "rf": "RF-01",
+      "cdu": "CDU-01",
+      "name": "Cadastrar Conta",
+      "summary": "Criar conta estudantil ou candidatura docente e confirmar e-mail",
+      "nec": "NEC-01",
+      "actors": "AT-06, AT-09",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O visitante informa nome, e-mail, senha e perfil pretendido (local, intercambista ou candidato a professor).",
+        "O sistema valida campos, unicidade do e-mail e requisitos de senha, registra conta pendente e solicita envio do link de confirmação.",
+        "O visitante acessa o link recebido.",
+        "O sistema valida o token, confirma a conta e informa que ela pode ser autenticada."
+      ],
+      "alt": [
+        "P2: Se já houver conta para o endereço, o sistema orienta a recuperação sem revelar dados da conta.",
+        "P3: Se o link estiver vencido, o visitante solicita reenvio; o sistema invalida o anterior e envia novo link."
+      ],
+      "exc": [
+        "P2: Se houver falha de envio, o sistema mantém a conta pendente e disponibiliza reenvio; não confirma a conta."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Conta confirmada, sem sessão iniciada; a candidatura não concede permissão docente.",
+      "accept": "Dado um e-mail ainda não cadastrado, ao concluir a confirmação válida, a conta fica ativa; link expirado não ativa a conta.",
+      "rnf": [
+        "RNF-07",
+        "RNF-09",
+        "RNF-11",
+        "RNF-17"
+      ],
+      "rules": [
+        "RN-01",
+        "RN-13"
+      ],
+      "freq": "Baixa",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-01.md",
+      "primary": [
+        "AT-06"
+      ],
+      "secondary": [
+        "AT-09"
+      ]
+    },
+    {
+      "n": 2,
+      "f": "F-02",
+      "rf": "RF-02",
+      "cdu": "CDU-02",
+      "name": "Autenticar Usuário",
+      "summary": "Iniciar sessão com credenciais válidas",
+      "nec": "NEC-01",
+      "actors": "AT-06",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O visitante informa e-mail e senha.",
+        "O sistema valida as credenciais, a confirmação da conta e seu estado.",
+        "O sistema cria a sessão e apresenta a página inicial correspondente às permissões."
+      ],
+      "alt": [
+        "P1: O visitante escolhe recuperar acesso; inicia CDU-03 e encerra este caso de uso.",
+        "P2: Conta pendente: o sistema oferece reenvio da confirmação, sem abrir sessão."
+      ],
+      "exc": [
+        "P2: Credenciais inválidas ou conta suspensa: o sistema recusa acesso, sem revelar informações sensíveis."
+      ],
+      "pre": "Existe conta cadastrada para o cenário de sucesso.",
+      "post": "Sessão válida com permissões do perfil efetivo.",
+      "accept": "Credenciais válidas de conta ativa abrem sessão; conta não confirmada ou suspensa não entra.",
+      "rnf": [
+        "RNF-07",
+        "RNF-08",
+        "RNF-09",
+        "RNF-17"
+      ],
+      "rules": [
+        "RN-13"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-02.md",
+      "primary": [
+        "AT-06"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 3,
+      "f": "F-03",
+      "rf": "RF-03",
+      "cdu": "CDU-03",
+      "name": "Recuperar Acesso à Conta",
+      "summary": "Restabelecer acesso mediante verificação segura",
+      "nec": "NEC-01",
+      "actors": "AT-06, AT-09",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O visitante informa o e-mail para recuperação.",
+        "O sistema apresenta resposta genérica e, se houver conta elegível, solicita envio de link temporário.",
+        "O visitante abre o link e informa nova senha.",
+        "O sistema valida token e senha, altera a credencial, invalida o token e revoga sessões anteriores."
+      ],
+      "alt": [
+        "P3: Link vencido: o visitante solicita outro link; retorna a P1.",
+        "P3: Senha fora dos critérios: o sistema orienta correção e retorna a P3."
+      ],
+      "exc": [
+        "P2: Serviço indisponível: o sistema não confirma o envio e permite nova tentativa sem expor dados da conta."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Senha alterada somente com token válido; sessões antigas invalidadas.",
+      "accept": "Token usado, expirado ou inválido não altera senha; token válido permite acesso com a nova senha.",
+      "rnf": [
+        "RNF-07",
+        "RNF-09",
+        "RNF-17"
+      ],
+      "rules": [
+        "RN-13"
+      ],
+      "freq": "Baixa",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-03.md",
+      "primary": [
+        "AT-06"
+      ],
+      "secondary": [
+        "AT-09"
+      ]
+    },
+    {
+      "n": 4,
+      "f": "F-04",
+      "rf": "RF-04",
+      "cdu": "CDU-04",
+      "name": "Encerrar Sessão",
+      "summary": "Invalidar a sessão corrente",
+      "nec": "NEC-01",
+      "actors": "AT-10",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O usuário seleciona sair.",
+        "O sistema invalida a sessão corrente e remove a credencial de sessão do navegador.",
+        "O sistema apresenta a tela pública de acesso."
+      ],
+      "alt": [
+        "P1: O usuário cancela a saída, caso a interface apresente confirmação; permanece na tela atual."
+      ],
+      "exc": [
+        "P2: Se a sessão já estiver expirada, o sistema limpa a credencial local e apresenta a tela de acesso."
+      ],
+      "pre": "Existe sessão corrente.",
+      "post": "Sessão encerrada.",
+      "accept": "Após sair, tentar abrir uma página restrita exige autenticação.",
+      "rnf": [
+        "RNF-07",
+        "RNF-08",
+        "RNF-17"
+      ],
+      "rules": [],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-04.md",
+      "primary": [
+        "AT-10"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 5,
+      "f": "F-05",
+      "rf": "RF-05",
+      "cdu": "CDU-05",
+      "name": "Manter Perfil Acadêmico",
+      "summary": "Consultar e alterar dados próprios, biografia, instituição, curso ou área, interesses e idiomas",
+      "nec": "NEC-01",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O usuário abre seu perfil.",
+        "O sistema apresenta dados editáveis e a visibilidade de cada campo.",
+        "O usuário altera biografia, instituição, curso ou área, interesses ou idiomas e salva.",
+        "O sistema valida os dados, registra as mudanças e apresenta o perfil atualizado."
+      ],
+      "alt": [
+        "P3: O usuário apenas consulta ou cancela alterações; o sistema conserva os dados anteriores.",
+        "P3: O usuário altera a visibilidade de campos opcionais; o sistema aplica a escolha nas consultas posteriores."
+      ],
+      "exc": [
+        "P4: Campo inválido ou falha de gravação: o sistema não confirma a atualização e mantém os dados anteriores."
+      ],
+      "pre": "Existe perfil associado à conta.",
+      "post": "Alterações válidas persistidas, sem mudança de permissões privilegiadas.",
+      "accept": "Alterar a biografia modifica o perfil próprio, mas não permite conceder perfil docente ou administrativo.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-01",
+        "RN-10",
+        "RN-19"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-05.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 6,
+      "f": "F-06",
+      "rf": "RF-06",
+      "cdu": "CDU-06",
+      "name": "Consultar Perfil Acadêmico",
+      "summary": "Visualizar dados de outro usuário conforme visibilidade",
+      "nec": "NEC-01",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O usuário seleciona o perfil de outra pessoa a partir da busca, de uma conexão ou de uma publicação.",
+        "O sistema verifica a visibilidade, o estado da conta e restrições de bloqueio.",
+        "O sistema apresenta os campos autorizados e ações disponíveis de interação."
+      ],
+      "alt": [
+        "P2: Campo privado é omitido; o sistema mostra apenas os demais campos autorizados."
+      ],
+      "exc": [
+        "P2: Perfil indisponível ou bloqueado: o sistema não apresenta os dados restritos."
+      ],
+      "pre": "Existe referência ao perfil consultado.",
+      "post": "Nenhum dado do perfil é alterado.",
+      "accept": "A consulta não expõe e-mail privado nem informações acadêmicas restritas.",
+      "rnf": [
+        "RNF-08",
+        "RNF-10",
+        "RNF-11"
+      ],
+      "rules": [
+        "RN-17",
+        "RN-19"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-06.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 7,
+      "f": "F-07",
+      "rf": "RF-07",
+      "cdu": "CDU-07",
+      "name": "Solicitar Perfil Docente",
+      "summary": "Solicitar autorização docente e consultar estado da solicitação",
+      "nec": "NEC-10",
+      "actors": "AT-08, AT-11",
+      "priority": "Essencial",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O estudante ou candidato abre a solicitação de perfil docente.",
+        "O sistema apresenta condições e campos de comprovação previstos.",
+        "O usuário informa instituição, área e referência de comprovação e envia.",
+        "O sistema registra a solicitação como pendente e apresenta seu estado."
+      ],
+      "alt": [
+        "P1: Se já houver solicitação, o sistema apresenta seu estado; se recusada, permite nova solicitação corrigida.",
+        "P3: O usuário cancela sem enviar."
+      ],
+      "exc": [
+        "P4: Solicitação duplicada ou incompleta: o sistema informa a situação sem conceder permissões."
+      ],
+      "pre": "A conta ainda não possui perfil docente autorizado.",
+      "post": "Solicitação registrada, perfil anterior preservado até decisão administrativa.",
+      "accept": "Uma solicitação pendente não permite criar turmas; decisão de autorização ocorre no CDU-39.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-01",
+        "RN-02",
+        "RN-13"
+      ],
+      "freq": "Baixa",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-07.md",
+      "primary": [
+        "AT-08",
+        "AT-11"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 8,
+      "f": "F-08",
+      "rf": "RF-08",
+      "cdu": "CDU-08",
+      "name": "Solicitar Exclusão de Conta",
+      "summary": "Solicitar encerramento da conta e tratamento dos dados conforme política aplicável",
+      "nec": "NEC-01",
+      "actors": "AT-07",
+      "priority": "Importante",
+      "module": "M01",
+      "screen": "perfil",
+      "main": [
+        "O usuário seleciona excluir conta.",
+        "O sistema explica consequências e dados sujeitos a retenção e solicita confirmação.",
+        "O usuário confirma a identidade e a solicitação.",
+        "O sistema registra pedido pendente e informa o acompanhamento."
+      ],
+      "alt": [
+        "P3: O usuário cancela; a conta permanece sem pedido.",
+        "P1: Pedido existente: o sistema informa o estado e não duplica a solicitação."
+      ],
+      "exc": [
+        "P3: Verificação de identidade inválida: o sistema recusa o pedido."
+      ],
+      "pre": "Conta existente.",
+      "post": "Pedido de exclusão registrado, sem apagar dados imediatamente.",
+      "accept": "Cancelar não altera a conta; confirmar gera pedido rastreável para CDU-45.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-14"
+      ],
+      "freq": "Baixa",
+      "value": "Médio",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M01/CDU-08.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 9,
+      "f": "F-09",
+      "rf": "RF-09",
+      "cdu": "CDU-09",
+      "name": "Pesquisar Usuários",
+      "summary": "Filtrar pessoas por curso, instituição, área, interesses e idiomas",
+      "nec": "NEC-02",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário abre a busca de pessoas.",
+        "O sistema apresenta filtros por curso, instituição, interesses, área e idiomas.",
+        "O usuário informa um ou mais critérios e realiza a busca.",
+        "O sistema apresenta perfis correspondentes e acessíveis."
+      ],
+      "alt": [
+        "P3: Sem critérios, o usuário recebe uma lista inicial paginada.",
+        "P4: Sem resultados, o sistema informa a ausência e permite alterar filtros."
+      ],
+      "exc": [
+        "P4: Falha na consulta: o sistema informa a falha e mantém os critérios para nova tentativa."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Nenhuma conexão é criada pela busca.",
+      "accept": "Ao filtrar por área e idioma, aparecem somente perfis elegíveis que atendam aos critérios definidos.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-17",
+        "RN-19"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-09.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 10,
+      "f": "F-10",
+      "rf": "RF-10",
+      "cdu": "CDU-10",
+      "name": "Gerenciar Conexões",
+      "summary": "Enviar, aceitar, recusar, cancelar ou remover conexões",
+      "nec": "NEC-02",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário seleciona um perfil elegível e solicita conexão.",
+        "O sistema verifica bloqueios, conta ativa e inexistência de solicitação ou conexão duplicada.",
+        "O sistema registra a solicitação pendente para o destinatário.",
+        "O destinatário consulta a solicitação e aceita.",
+        "O sistema registra a conexão e apresenta o novo estado aos participantes."
+      ],
+      "alt": [
+        "P4: O destinatário recusa; o sistema encerra a solicitação sem criar conexão.",
+        "P1: O usuário abre uma conexão existente e a remove; o sistema atualiza o vínculo.",
+        "P1: O remetente cancela pedido pendente; o sistema encerra a solicitação."
+      ],
+      "exc": [
+        "P2: Bloqueio ou solicitação duplicada: o sistema impede novo pedido."
+      ],
+      "pre": "Os dois perfis existem.",
+      "post": "Conexão aceita, recusada, cancelada ou removida conforme o cenário.",
+      "accept": "Uma conexão somente é criada após aceitação do destinatário; bloqueio impede novo pedido.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11"
+      ],
+      "rules": [
+        "RN-03",
+        "RN-17"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-10.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 11,
+      "f": "F-11",
+      "rf": "RF-11",
+      "cdu": "CDU-11",
+      "name": "Trocar Mensagens",
+      "summary": "Enviar mensagens entre conexões aceitas e consultar histórico autorizado",
+      "nec": "NEC-03",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário seleciona uma conversa ou um perfil com conexão aceita.",
+        "O sistema verifica a participação e a inexistência de bloqueio e apresenta o histórico autorizado.",
+        "O usuário escreve a mensagem e envia.",
+        "O sistema valida o texto, registra a mensagem e confirma a entrega ao armazenamento, disponibilizando-a ao destinatário."
+      ],
+      "alt": [
+        "P2: O usuário consulta a conversa sem enviar nova mensagem.",
+        "P3: O usuário cancela a composição; nenhuma mensagem nova é registrada."
+      ],
+      "exc": [
+        "P4: Falha de envio: o sistema não apresenta sucesso e permite reenviar; se houver bloqueio, recusa o envio."
+      ],
+      "pre": "Há conexão aceita e participantes autorizados para enviar novas mensagens.",
+      "post": "Mensagem registrada uma única vez, quando confirmada.",
+      "accept": "Somente participantes acessam a conversa; envio bloqueado não é armazenado.",
+      "rnf": [
+        "RNF-02",
+        "RNF-06",
+        "RNF-08",
+        "RNF-11"
+      ],
+      "rules": [
+        "RN-03",
+        "RN-17"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-11.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 12,
+      "f": "F-12",
+      "rf": "RF-12",
+      "cdu": "CDU-12",
+      "name": "Consultar Publicações",
+      "summary": "Visualizar feed e publicações acessíveis",
+      "nec": "NEC-03",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário abre o feed.",
+        "O sistema verifica a visibilidade das publicações e apresenta uma lista em ordem de atualização definida.",
+        "O usuário seleciona uma publicação ou carrega mais resultados.",
+        "O sistema apresenta o conteúdo e as interações acessíveis."
+      ],
+      "alt": [
+        "P3: O usuário filtra por área ou acessa publicações de um grupo do qual participa.",
+        "P2: Se não houver conteúdo elegível, o sistema mostra estado vazio."
+      ],
+      "exc": [
+        "P2: Falha na consulta: o sistema informa indisponibilidade e oferece nova tentativa."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Nenhuma publicação alterada.",
+      "accept": "Publicações removidas ou de grupo restrito sem participação não aparecem.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-05"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-12.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 13,
+      "f": "F-13",
+      "rf": "RF-13",
+      "cdu": "CDU-13",
+      "name": "Manter Publicação",
+      "summary": "Criar, editar e excluir publicações próprias no feed ou grupo autorizado",
+      "nec": "NEC-03",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário seleciona criar publicação e escolhe feed ou grupo autorizado.",
+        "O sistema apresenta formulário de texto, links e anexos permitidos.",
+        "O usuário preenche o conteúdo e confirma.",
+        "O sistema verifica autoria, permissões e limites, registra a publicação e a exibe no destino."
+      ],
+      "alt": [
+        "P1: O autor seleciona publicação própria e edita conteúdo; o sistema valida e salva a alteração.",
+        "P1: O autor seleciona excluir publicação própria, confirma e o sistema retira a publicação da consulta.",
+        "P3: Cancelamento mantém o estado anterior."
+      ],
+      "exc": [
+        "P4: Formato inválido, ausência de permissão ou falha de gravação: o sistema recusa a operação e informa o motivo."
+      ],
+      "pre": "Para publicar em grupo restrito, o usuário é participante autorizado.",
+      "post": "Publicação criada, atualizada ou retirada pelo autor.",
+      "accept": "Usuário publica texto permitido; outro usuário não consegue editar ou excluir a publicação.",
+      "rnf": [
+        "RNF-08",
+        "RNF-12",
+        "RNF-19"
+      ],
+      "rules": [
+        "RN-04",
+        "RN-05",
+        "RN-20"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-13.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 14,
+      "f": "F-14",
+      "rf": "RF-14",
+      "cdu": "CDU-14",
+      "name": "Interagir com Publicações",
+      "summary": "Comentar, reagir e salvar publicações acessíveis; manter interações próprias",
+      "nec": "NEC-03",
+      "actors": "AT-07",
+      "priority": "Importante",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário seleciona uma publicação acessível.",
+        "O sistema apresenta reações, comentários e ação de salvar.",
+        "O usuário escreve um comentário e confirma.",
+        "O sistema registra o comentário com autoria e atualiza a exibição."
+      ],
+      "alt": [
+        "P3: O usuário reage ou desfaz a reação; o sistema atualiza a reação única por usuário.",
+        "P3: O usuário salva ou remove dos salvos; o sistema atualiza apenas sua coleção.",
+        "P3: O autor edita ou exclui seu próprio comentário; o sistema aplica a alteração."
+      ],
+      "exc": [
+        "P4: Publicação indisponível, comentário inválido ou acesso revogado: o sistema recusa a interação."
+      ],
+      "pre": "Publicação acessível.",
+      "post": "Interação registrada, alterada ou removida conforme ação.",
+      "accept": "Reação pode ser desfeita; salvar não altera a visibilidade para outros usuários.",
+      "rnf": [
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-04"
+      ],
+      "freq": "Alta",
+      "value": "Médio",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-14.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 15,
+      "f": "F-15",
+      "rf": "RF-15",
+      "cdu": "CDU-15",
+      "name": "Manter Grupo de Estudo",
+      "summary": "Criar e manter grupos de estudo e gerenciar participantes quando responsável",
+      "nec": "NEC-04",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário seleciona criar grupo de estudo.",
+        "O sistema apresenta campos de nome, tema, descrição e modalidade de ingresso.",
+        "O usuário informa os dados e confirma.",
+        "O sistema cria o grupo, registra o criador como responsável e apresenta o grupo."
+      ],
+      "alt": [
+        "P1: Responsável edita dados do grupo ou encerra o grupo após confirmação.",
+        "P1: Responsável consulta pedidos de ingresso e aceita ou recusa em grupo restrito; pode remover participantes segundo a política.",
+        "P3: Cancelamento não altera o grupo."
+      ],
+      "exc": [
+        "P4: Nome ou dados inválidos, falta de permissão ou falha de armazenamento: o sistema recusa a operação."
+      ],
+      "pre": "Para manutenção, existe grupo sob responsabilidade do ator.",
+      "post": "Grupo criado ou mantido, com participação controlada.",
+      "accept": "Criador pode administrar seu grupo; participante comum não consegue aprovar pedidos de ingresso.",
+      "rnf": [
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-05"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-15.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 16,
+      "f": "F-16",
+      "rf": "RF-16",
+      "cdu": "CDU-16",
+      "name": "Pesquisar Grupos de Estudo",
+      "summary": "Localizar grupos por tema ou área",
+      "nec": "NEC-04",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário abre a busca de grupos.",
+        "O sistema apresenta filtros de tema, área e modalidade.",
+        "O usuário informa critérios e pesquisa.",
+        "O sistema apresenta grupos disponíveis com descrição e situação de participação."
+      ],
+      "alt": [
+        "P3: Sem resultados, o sistema informa ausência e permite limpar filtros.",
+        "P4: O usuário seleciona grupo para ver detalhes públicos."
+      ],
+      "exc": [
+        "P4: Erro na pesquisa: o sistema apresenta mensagem e permite tentar novamente."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Nenhuma participação é alterada.",
+      "accept": "Busca retorna grupos que correspondem aos filtros, sem revelar publicações restritas.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-05"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-16.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 17,
+      "f": "F-17",
+      "rf": "RF-17",
+      "cdu": "CDU-17",
+      "name": "Participar de Grupo de Estudo",
+      "summary": "Ingressar, sair e acessar conteúdos do grupo conforme permissões",
+      "nec": "NEC-04",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M02",
+      "screen": "rede-social",
+      "main": [
+        "O usuário seleciona grupo disponível.",
+        "O sistema apresenta regras, descrição e modalidade de ingresso.",
+        "O usuário solicita participar.",
+        "O sistema registra participação em grupo aberto ou pedido pendente em grupo restrito, e apresenta o estado."
+      ],
+      "alt": [
+        "P1: Participante abre grupo e consulta conteúdo autorizado.",
+        "P1: Participante escolhe sair e confirma; o sistema encerra seu vínculo.",
+        "P4: Em grupo restrito, o responsável decide o pedido pelo CDU-15; até então o conteúdo privado permanece inacessível."
+      ],
+      "exc": [
+        "P4: Grupo encerrado ou usuário impedido: o sistema recusa o ingresso."
+      ],
+      "pre": "Grupo existente.",
+      "post": "Participação ativa, pedido pendente ou vínculo encerrado.",
+      "accept": "Pedido pendente de grupo restrito não concede acesso ao conteúdo privado.",
+      "rnf": [
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-05"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M02/CDU-17.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 18,
+      "f": "F-18",
+      "rf": "RF-18",
+      "cdu": "CDU-18",
+      "name": "Consultar Locais Recomendados",
+      "summary": "Consultar guia de adaptação, orientações, locais de estudo, convivência, serviços e pontos turísticos",
+      "nec": "NEC-05",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M03",
+      "screen": "integracao",
+      "main": [
+        "O usuário abre o guia de adaptação.",
+        "O sistema apresenta categorias de locais, serviços do campus, convivência, pontos turísticos e orientações.",
+        "O usuário filtra por categoria ou instituição e seleciona um item.",
+        "O sistema apresenta descrição, referência de localização e data de atualização quando disponíveis."
+      ],
+      "alt": [
+        "P3: Sem resultados, o sistema sugere remover filtros.",
+        "P4: O usuário abre link externo de referência, quando cadastrado."
+      ],
+      "exc": [
+        "P2: Catálogo indisponível: o sistema informa a falha sem inventar informações."
+      ],
+      "pre": "Catálogo pode estar vazio.",
+      "post": "Nenhuma informação do catálogo é alterada.",
+      "accept": "O guia apresenta itens ativos e orientações cadastradas, com filtros por categoria.",
+      "rnf": [
+        "RNF-01",
+        "RNF-12",
+        "RNF-20"
+      ],
+      "rules": [
+        "RN-11"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M03/CDU-18.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 19,
+      "f": "F-19",
+      "rf": "RF-19",
+      "cdu": "CDU-19",
+      "name": "Consultar Eventos e Oportunidades",
+      "summary": "Pesquisar palestras, workshops, congressos, vagas e oportunidades",
+      "nec": "NEC-05",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M03",
+      "screen": "integracao",
+      "main": [
+        "O usuário abre eventos e oportunidades.",
+        "O sistema apresenta filtros de área, data, categoria e modalidade.",
+        "O usuário seleciona critérios e pesquisa.",
+        "O sistema apresenta divulgações acessíveis com título, descrição, prazo e referência quando informados."
+      ],
+      "alt": [
+        "P3: O usuário inclui oportunidades encerradas para consulta, quando disponíveis.",
+        "P4: Seleciona um evento e visualiza os detalhes."
+      ],
+      "exc": [
+        "P4: Falha na consulta: o sistema informa e permite nova tentativa."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Nenhuma divulgação alterada.",
+      "accept": "Filtro de oportunidades abertas não inclui prazos encerrados; detalhes indicam a fonte fornecida.",
+      "rnf": [
+        "RNF-01",
+        "RNF-12",
+        "RNF-20"
+      ],
+      "rules": [
+        "RN-11"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M03/CDU-19.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 20,
+      "f": "F-20",
+      "rf": "RF-20",
+      "cdu": "CDU-20",
+      "name": "Divulgar Evento ou Oportunidade",
+      "summary": "Cadastrar, atualizar e retirar divulgações próprias",
+      "nec": "NEC-05",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M03",
+      "screen": "integracao",
+      "main": [
+        "O professor autorizado abre a área de divulgações.",
+        "O sistema apresenta campos de título, tipo, área, descrição, datas, modalidade e referência.",
+        "O professor preenche e confirma.",
+        "O sistema valida datas e autoria, registra a divulgação e a disponibiliza no catálogo."
+      ],
+      "alt": [
+        "P1: Professor seleciona divulgação própria para editar ou retirar; o sistema verifica autoria e aplica a alteração.",
+        "P3: O professor cancela o cadastro."
+      ],
+      "exc": [
+        "P4: Datas incoerentes, falta de autorização ou falha de gravação: o sistema recusa e mantém o estado anterior."
+      ],
+      "pre": "Perfil docente autorizado.",
+      "post": "Divulgação criada, atualizada ou retirada.",
+      "accept": "Professor divulga evento com período válido; outro professor não pode editar a divulgação sem autorização.",
+      "rnf": [
+        "RNF-08",
+        "RNF-12",
+        "RNF-20"
+      ],
+      "rules": [
+        "RN-11"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M03/CDU-20.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 21,
+      "f": "F-21",
+      "rf": "RF-21",
+      "cdu": "CDU-21",
+      "name": "Consultar Recomendações",
+      "summary": "Receber sugestões de livros, aulas, cursos, conteúdos e eventos por área e interesses",
+      "nec": "NEC-06",
+      "actors": "AT-07",
+      "priority": "Importante",
+      "module": "M03",
+      "screen": "integracao",
+      "main": [
+        "O usuário abre a seção de recomendações.",
+        "O sistema consulta área, interesses e catálogo de referências elegíveis.",
+        "O sistema ordena resultados por afinidade e apresenta livros, aulas, cursos, eventos e conteúdos disponíveis com indicação de tema.",
+        "O usuário seleciona um item para consultar sua referência."
+      ],
+      "alt": [
+        "P2: Sem interesses definidos, o sistema apresenta sugestões gerais e orienta completar o perfil.",
+        "P3: Sem itens elegíveis, apresenta estado vazio."
+      ],
+      "exc": [
+        "P2: Erro de consulta: o sistema não inventa recomendações e informa indisponibilidade."
+      ],
+      "pre": "Perfil e catálogo disponíveis para personalização.",
+      "post": "Nenhum dado externo é cadastrado pela consulta.",
+      "accept": "Perfis com áreas distintas recebem sugestões coerentes com as categorias cadastradas.",
+      "rnf": [
+        "RNF-01",
+        "RNF-12",
+        "RNF-20"
+      ],
+      "rules": [
+        "RN-10",
+        "RN-11"
+      ],
+      "freq": "Alta",
+      "value": "Médio",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M03/CDU-21.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 22,
+      "f": "F-22",
+      "rf": "RF-22",
+      "cdu": "CDU-22",
+      "name": "Manter Turma",
+      "summary": "Criar, editar e encerrar turmas próprias",
+      "nec": "NEC-07",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor autorizado seleciona criar turma.",
+        "O sistema apresenta campos de nome, instituição, disciplina, período e descrição.",
+        "O professor preenche e confirma.",
+        "O sistema registra turma sob responsabilidade do professor e apresenta sua área de gestão."
+      ],
+      "alt": [
+        "P1: Professor seleciona turma própria para editar ou encerrar; o sistema verifica vínculo e confirma a mudança de estado.",
+        "P3: Professor cancela sem gravar."
+      ],
+      "exc": [
+        "P4: Dados inválidos, falta de autorização ou falha de gravação: o sistema recusa a operação."
+      ],
+      "pre": "Perfil docente autorizado.",
+      "post": "Turma criada, editada ou encerrada; encerramento impede novas entregas e ingressos.",
+      "accept": "Professor autorizado cria turma; candidato pendente não possui essa permissão.",
+      "rnf": [
+        "RNF-08",
+        "RNF-05",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-02",
+        "RN-06",
+        "RN-15"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-22.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 23,
+      "f": "F-23",
+      "rf": "RF-23",
+      "cdu": "CDU-23",
+      "name": "Consultar Turmas",
+      "summary": "Visualizar turmas acessíveis e respectivos dados",
+      "nec": "NEC-07",
+      "actors": "AT-08, AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O usuário abre turmas.",
+        "O sistema apresenta turmas próprias para professor ou turmas disponíveis e vínculos para estudante.",
+        "O usuário seleciona uma turma.",
+        "O sistema apresenta somente informações públicas ou informações da turma autorizadas para seu vínculo."
+      ],
+      "alt": [
+        "P3: Estudante sem vínculo visualiza informações de ingresso, não materiais e notas.",
+        "P2: Se não houver turmas, apresenta estado vazio."
+      ],
+      "exc": [
+        "P4: Acesso direto indevido a turma restrita: o sistema recusa os dados privados."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Nenhum vínculo criado pela consulta.",
+      "accept": "Estudante não inscrito não visualiza materiais privados; professor vê suas turmas.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-10"
+      ],
+      "rules": [
+        "RN-06"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-23.md",
+      "primary": [
+        "AT-08",
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 24,
+      "f": "F-24",
+      "rf": "RF-24",
+      "cdu": "CDU-24",
+      "name": "Solicitar Participação em Turma",
+      "summary": "Solicitar ingresso em turma ou cancelar pedido pendente",
+      "nec": "NEC-07",
+      "actors": "AT-08",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O estudante seleciona uma turma aberta a ingressos ou informa convite.",
+        "O sistema apresenta dados da turma e verifica elegibilidade.",
+        "O estudante confirma a solicitação.",
+        "O sistema registra pedido pendente e informa que aguarda decisão do professor."
+      ],
+      "alt": [
+        "P1: Estudante com vínculo existente consulta seu estado sem gerar novo pedido.",
+        "P3: Estudante cancela antes de confirmar; não cria solicitação.",
+        "P1: Estudante cancela pedido ainda pendente; o sistema encerra o pedido."
+      ],
+      "exc": [
+        "P4: Turma encerrada, convite inválido ou pedido duplicado: o sistema não registra novo pedido."
+      ],
+      "pre": "Turma existente e aberta para ingresso.",
+      "post": "Pedido pendente sem acesso privado até aprovação.",
+      "accept": "Solicitar ingresso não libera materiais; autorização depende do CDU-25.",
+      "rnf": [
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-06"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-24.md",
+      "primary": [
+        "AT-08"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 25,
+      "f": "F-25",
+      "rf": "RF-25",
+      "cdu": "CDU-25",
+      "name": "Gerenciar Participantes da Turma",
+      "summary": "Autorizar ou recusar ingresso e gerenciar participantes de turmas próprias",
+      "nec": "NEC-07",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor abre os participantes de uma turma própria.",
+        "O sistema apresenta vínculos ativos e pedidos pendentes.",
+        "O professor seleciona pedido e autoriza a participação.",
+        "O sistema registra decisão, ativa o vínculo e atualiza as permissões de acesso à turma."
+      ],
+      "alt": [
+        "P3: Professor recusa pedido; o sistema registra recusa sem conceder acesso.",
+        "P3: Professor remove participante com confirmação; o sistema revoga acesso futuro preservando registros conforme política."
+      ],
+      "exc": [
+        "P4: Turma não pertence ao professor ou pedido já decidido: o sistema recusa mudança indevida."
+      ],
+      "pre": "Turma sob responsabilidade do ator; há pedido pendente no cenário principal.",
+      "post": "Vínculo ativo, recusado ou revogado, com histórico.",
+      "accept": "Somente responsável autorizado decide ingresso; estudante aprovado pode consultar materiais.",
+      "rnf": [
+        "RNF-08",
+        "RNF-10",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-06"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-25.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 26,
+      "f": "F-26",
+      "rf": "RF-26",
+      "cdu": "CDU-26",
+      "name": "Manter Material Acadêmico",
+      "summary": "Publicar, atualizar e retirar materiais de turmas próprias",
+      "nec": "NEC-07",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor seleciona materiais de uma turma própria.",
+        "O sistema apresenta campos de título, descrição e arquivo ou link.",
+        "O professor informa material e confirma.",
+        "O sistema valida permissão e formato, grava e disponibiliza para participantes autorizados."
+      ],
+      "alt": [
+        "P1: Professor edita ou retira material próprio; o sistema atualiza sua disponibilidade.",
+        "P3: Cancelamento não altera registros."
+      ],
+      "exc": [
+        "P4: Arquivo fora dos limites ou erro de armazenamento: o sistema não publica o material."
+      ],
+      "pre": "Turma existente sob responsabilidade do professor.",
+      "post": "Material disponível ou alterado conforme a ação.",
+      "accept": "Aluno autorizado visualiza material; aluno sem vínculo não obtém o arquivo por link direto.",
+      "rnf": [
+        "RNF-08",
+        "RNF-05",
+        "RNF-19"
+      ],
+      "rules": [
+        "RN-06",
+        "RN-20"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-26.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 27,
+      "f": "F-27",
+      "rf": "RF-27",
+      "cdu": "CDU-27",
+      "name": "Consultar Materiais Acadêmicos",
+      "summary": "Acessar materiais das turmas autorizadas",
+      "nec": "NEC-07",
+      "actors": "AT-08, AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O estudante ou professor abre materiais de uma turma acessível.",
+        "O sistema valida o vínculo e apresenta a lista de materiais.",
+        "O usuário seleciona um item.",
+        "O sistema apresenta descrição e disponibiliza o arquivo ou link autorizado."
+      ],
+      "alt": [
+        "P2: Lista vazia: o sistema informa ausência de materiais.",
+        "P3: O usuário consulta apenas a descrição sem abrir o arquivo."
+      ],
+      "exc": [
+        "P4: Arquivo removido, acesso revogado ou falha de carregamento: o sistema informa sem expor o arquivo."
+      ],
+      "pre": "Existe turma com vínculo autorizado ou responsabilidade docente.",
+      "post": "Nenhum material é alterado.",
+      "accept": "A consulta e download respeitam as mesmas permissões da turma.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-19"
+      ],
+      "rules": [
+        "RN-06",
+        "RN-20"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-27.md",
+      "primary": [
+        "AT-08",
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 28,
+      "f": "F-28",
+      "rf": "RF-28",
+      "cdu": "CDU-28",
+      "name": "Manter Atividade",
+      "summary": "Criar, atualizar e encerrar tarefas, exercícios e avaliações com prazo",
+      "nec": "NEC-07",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor abre atividades de turma própria.",
+        "O sistema apresenta campos de título, instruções, prazo, pontuação máxima e forma de entrega.",
+        "O professor preenche e confirma.",
+        "O sistema valida prazo, pontuação e autorização, grava e publica a atividade."
+      ],
+      "alt": [
+        "P1: Professor edita atividade própria; o sistema preserva entregas existentes e registra mudanças de prazo.",
+        "P1: Professor encerra atividade; o sistema bloqueia novas entregas.",
+        "P3: Cancelamento não altera atividade."
+      ],
+      "exc": [
+        "P4: Prazo inválido, pontuação não positiva ou erro de armazenamento: o sistema não publica a atividade."
+      ],
+      "pre": "Turma ativa sob responsabilidade do ator.",
+      "post": "Atividade publicada, atualizada ou encerrada.",
+      "accept": "Atividade com prazo e pontuação válidos é visível aos participantes; encerrada não aceita novas entregas.",
+      "rnf": [
+        "RNF-05",
+        "RNF-08",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-06",
+        "RN-15",
+        "RN-16"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-28.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 29,
+      "f": "F-29",
+      "rf": "RF-29",
+      "cdu": "CDU-29",
+      "name": "Consultar Atividades",
+      "summary": "Acessar orientações, prazos e situação das atividades",
+      "nec": "NEC-07",
+      "actors": "AT-08, AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O usuário abre atividades de turma acessível.",
+        "O sistema valida vínculo e apresenta atividades com prazo e estado.",
+        "O usuário seleciona atividade.",
+        "O sistema apresenta instruções e estado da entrega própria, ou visão de gestão para professor responsável."
+      ],
+      "alt": [
+        "P2: Usuário filtra por pendentes, entregues ou encerradas.",
+        "P2: Se não houver atividade, o sistema informa lista vazia."
+      ],
+      "exc": [
+        "P4: Atividade removida ou acesso revogado: o sistema recusa detalhes restritos."
+      ],
+      "pre": "Vínculo ativo com turma ou responsabilidade docente.",
+      "post": "Nenhuma atividade ou entrega alterada.",
+      "accept": "Estudante visualiza apenas o estado de sua própria entrega; professor acessa as informações de gestão da turma.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-10"
+      ],
+      "rules": [
+        "RN-06",
+        "RN-07",
+        "RN-15"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-29.md",
+      "primary": [
+        "AT-08",
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 30,
+      "f": "F-30",
+      "rf": "RF-30",
+      "cdu": "CDU-30",
+      "name": "Submeter Atividade",
+      "summary": "Entregar trabalho e consultar situação de sua entrega",
+      "nec": "NEC-08",
+      "actors": "AT-08",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O estudante abre atividade disponível.",
+        "O sistema verifica vínculo, prazo e instruções de entrega.",
+        "O estudante informa resposta ou anexa arquivo permitido e confirma.",
+        "O sistema valida prazo e conteúdo, grava a entrega e apresenta recibo com data e estado."
+      ],
+      "alt": [
+        "P1: Estudante consulta entrega própria já registrada.",
+        "P3: Antes do prazo, estudante substitui a entrega quando a atividade permitir; o sistema registra nova versão."
+      ],
+      "exc": [
+        "P4: Prazo vencido, turma encerrada, arquivo inválido ou falha de gravação: o sistema não confirma nova entrega."
+      ],
+      "pre": "Atividade publicada, turma ativa e vínculo autorizado.",
+      "post": "Entrega registrada com data; nenhuma nota atribuída automaticamente.",
+      "accept": "Entrega válida dentro do prazo recebe confirmação; fora do prazo é recusada pela regra inicial.",
+      "rnf": [
+        "RNF-05",
+        "RNF-08",
+        "RNF-19"
+      ],
+      "rules": [
+        "RN-06",
+        "RN-07",
+        "RN-15",
+        "RN-20"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-30.md",
+      "primary": [
+        "AT-08"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 31,
+      "f": "F-31",
+      "rf": "RF-31",
+      "cdu": "CDU-31",
+      "name": "Avaliar Entregas",
+      "summary": "Avaliar entregas, atribuir notas dentro da escala da atividade e atualizar feedback",
+      "nec": "NEC-08",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor abre entregas de atividade de turma própria.",
+        "O sistema verifica responsabilidade e lista entregas autorizadas.",
+        "O professor seleciona entrega, informa nota e feedback e confirma.",
+        "O sistema valida faixa de pontuação, grava a avaliação e disponibiliza somente ao estudante avaliado."
+      ],
+      "alt": [
+        "P3: Professor atualiza nota ou feedback já registrado e informa justificativa; o sistema mantém histórico da alteração.",
+        "P2: Sem entregas, o sistema apresenta lista vazia."
+      ],
+      "exc": [
+        "P4: Nota fora da faixa, professor sem autorização ou falha de gravação: o sistema não altera a avaliação."
+      ],
+      "pre": "Entrega existente em turma sob responsabilidade do ator.",
+      "post": "Avaliação registrada ou atualizada; estudante pode consultar a própria.",
+      "accept": "Nota superior à pontuação máxima é rejeitada; avaliação válida aparece apenas para o aluno avaliado e professor responsável.",
+      "rnf": [
+        "RNF-05",
+        "RNF-08",
+        "RNF-10",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-07",
+        "RN-08",
+        "RN-16"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-31.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 32,
+      "f": "F-32",
+      "rf": "RF-32",
+      "cdu": "CDU-32",
+      "name": "Consultar Desempenho Individual",
+      "summary": "Acessar notas e feedback próprios",
+      "nec": "NEC-08",
+      "actors": "AT-08",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O estudante abre seu desempenho acadêmico.",
+        "O sistema identifica os vínculos e consulta apenas notas e feedback do próprio estudante.",
+        "O estudante seleciona turma ou atividade.",
+        "O sistema apresenta resultados disponíveis, pontuação máxima e estado de avaliação."
+      ],
+      "alt": [
+        "P2: Se não houver nota, apresenta aguardando avaliação, sem interpretar como zero.",
+        "P3: Estudante consulta outra turma da qual participa."
+      ],
+      "exc": [
+        "P2: Tentativa de acessar resultado de outro estudante: o sistema recusa a consulta."
+      ],
+      "pre": "Há vínculo acadêmico autorizado.",
+      "post": "Nenhum resultado é alterado.",
+      "accept": "Usuário não pode obter notas de outro estudante pela interface nem por requisição direta.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-10"
+      ],
+      "rules": [
+        "RN-07",
+        "RN-08",
+        "RN-16"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-32.md",
+      "primary": [
+        "AT-08"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 33,
+      "f": "F-33",
+      "rf": "RF-33",
+      "cdu": "CDU-33",
+      "name": "Acompanhar Desempenho da Turma",
+      "summary": "Consultar resultados individuais e coletivos de turmas próprias",
+      "nec": "NEC-08",
+      "actors": "AT-03",
+      "priority": "Importante",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor abre desempenho de turma própria.",
+        "O sistema verifica responsabilidade e apresenta lista de atividades, entregas e avaliações.",
+        "O professor seleciona uma atividade ou estudante.",
+        "O sistema apresenta os resultados autorizados e resumo de entregas e notas disponíveis, distinguindo ausência de nota."
+      ],
+      "alt": [
+        "P3: Professor consulta visão coletiva com contagem de entregas e média apenas das notas registradas.",
+        "P2: Sem avaliações, o sistema mostra ausência de dados, não média zero."
+      ],
+      "exc": [
+        "P2: Professor de outra turma não recebe os dados."
+      ],
+      "pre": "Turma sob responsabilidade do professor.",
+      "post": "Nenhuma avaliação alterada.",
+      "accept": "Resumo coletivo usa somente turma própria e exclui notas não registradas do cálculo da média.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-10"
+      ],
+      "rules": [
+        "RN-07",
+        "RN-08",
+        "RN-16"
+      ],
+      "freq": "Média",
+      "value": "Médio",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-33.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 34,
+      "f": "F-34",
+      "rf": "RF-34",
+      "cdu": "CDU-34",
+      "name": "Manter Comunicado",
+      "summary": "Publicar, editar e retirar avisos de turmas próprias",
+      "nec": "NEC-07",
+      "actors": "AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O professor abre comunicados de turma própria.",
+        "O sistema apresenta formulário de título e texto.",
+        "O professor preenche e confirma.",
+        "O sistema registra o comunicado e o apresenta aos participantes autorizados."
+      ],
+      "alt": [
+        "P1: Professor edita ou retira comunicado próprio; o sistema atualiza a exibição.",
+        "P3: Cancelamento preserva registros."
+      ],
+      "exc": [
+        "P4: Conteúdo inválido, acesso indevido ou falha de gravação: o sistema não publica."
+      ],
+      "pre": "Turma sob responsabilidade do professor.",
+      "post": "Comunicado criado, editado ou retirado.",
+      "accept": "Participantes da turma veem o aviso; usuários externos à turma não o consultam.",
+      "rnf": [
+        "RNF-08",
+        "RNF-05",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-06"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-34.md",
+      "primary": [
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 35,
+      "f": "F-35",
+      "rf": "RF-35",
+      "cdu": "CDU-35",
+      "name": "Consultar Comunicados",
+      "summary": "Visualizar avisos das turmas autorizadas",
+      "nec": "NEC-07",
+      "actors": "AT-08, AT-03",
+      "priority": "Essencial",
+      "module": "M04",
+      "screen": "turmas",
+      "main": [
+        "O estudante ou professor abre comunicados de turma acessível.",
+        "O sistema verifica o vínculo e lista avisos disponíveis.",
+        "O usuário seleciona um comunicado.",
+        "O sistema apresenta título, texto, autoria e data."
+      ],
+      "alt": [
+        "P2: Se não houver comunicados, apresenta estado vazio.",
+        "P3: Usuário filtra avisos por data quando disponível."
+      ],
+      "exc": [
+        "P4: Comunicado retirado ou acesso revogado: o sistema não exibe conteúdo privado."
+      ],
+      "pre": "Vínculo autorizado ou responsabilidade pela turma.",
+      "post": "Nenhum comunicado é alterado.",
+      "accept": "Aviso privado é acessível somente a participantes autorizados e professor responsável.",
+      "rnf": [
+        "RNF-01",
+        "RNF-08",
+        "RNF-12"
+      ],
+      "rules": [
+        "RN-06"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E2 — gestão acadêmica",
+      "path": "casos-de-uso/M04/CDU-35.md",
+      "primary": [
+        "AT-08",
+        "AT-03"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 36,
+      "f": "F-36",
+      "rf": "RF-36",
+      "cdu": "CDU-36",
+      "name": "Definir Idioma da Interface",
+      "summary": "Selecionar idioma de interface e salvar preferência",
+      "nec": "NEC-09",
+      "actors": "AT-06, AT-10",
+      "priority": "Essencial",
+      "module": "M05",
+      "screen": "idiomas",
+      "main": [
+        "O usuário abre as preferências de idioma.",
+        "O sistema apresenta idiomas de interface disponíveis.",
+        "O usuário seleciona um idioma e confirma.",
+        "O sistema salva a preferência e atualiza os textos fixos da interface."
+      ],
+      "alt": [
+        "P3: O usuário mantém a opção anterior ou retorna ao idioma padrão.",
+        "P1: Visitante pode selecionar idioma para a tela pública; o sistema mantém preferência local até autenticação."
+      ],
+      "exc": [
+        "P4: Idioma indisponível: o sistema mantém o anterior e informa a situação."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Preferência registrada na conta ou no navegador quando visitante.",
+      "accept": "Alternar português/inglês atualiza textos fixos sem traduzir automaticamente conteúdo de usuários.",
+      "rnf": [
+        "RNF-04",
+        "RNF-14",
+        "RNF-12"
+      ],
+      "rules": [],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M05/CDU-36.md",
+      "primary": [
+        "AT-06",
+        "AT-10"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 37,
+      "f": "F-37",
+      "rf": "RF-37",
+      "cdu": "CDU-37",
+      "name": "Traduzir Conteúdo Textual",
+      "summary": "Solicitar tradução de mensagens, publicações, biografias, descrições e trechos textuais elegíveis",
+      "nec": "NEC-09",
+      "actors": "AT-07, AT-05",
+      "priority": "Essencial",
+      "module": "M05",
+      "screen": "idiomas",
+      "main": [
+        "O usuário seleciona traduzir em conteúdo textual acessível.",
+        "O sistema apresenta idioma de destino e verifica autorização e elegibilidade do texto.",
+        "O usuário confirma o idioma.",
+        "O sistema envia somente texto necessário ao serviço de tradução, recebe o resultado e exibe versão traduzida identificada, com opção de ver original."
+      ],
+      "alt": [
+        "P2: Texto já está no idioma escolhido; o sistema mantém o original e informa a situação.",
+        "P4: Usuário seleciona ver original; o sistema retorna ao texto original."
+      ],
+      "exc": [
+        "P4: Serviço indisponível, texto não suportado ou falha de tradução: o sistema mantém original e oferece nova tentativa."
+      ],
+      "pre": "Conteúdo textual acessível ao ator.",
+      "post": "Original inalterado; tradução apresentada como resultado auxiliar.",
+      "accept": "Tradução nunca sobrescreve o original; falha do serviço não impede sua leitura.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-15",
+        "RNF-21"
+      ],
+      "rules": [
+        "RN-09"
+      ],
+      "freq": "Alta",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M05/CDU-37.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": [
+        "AT-05"
+      ]
+    },
+    {
+      "n": 38,
+      "f": "F-38",
+      "rf": "RF-38",
+      "cdu": "CDU-38",
+      "name": "Gerenciar Usuários e Acessos",
+      "summary": "Consultar contas e suspender ou restabelecer acesso conforme autorização",
+      "nec": "NEC-10",
+      "actors": "AT-04",
+      "priority": "Essencial",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O administrador abre gestão de contas.",
+        "O sistema apresenta dados operacionais mínimos, estado e perfil de contas.",
+        "O administrador seleciona conta e informa motivo da suspensão.",
+        "O sistema verifica sua autorização, registra a suspensão, revoga sessões da conta e grava a ação em histórico."
+      ],
+      "alt": [
+        "P3: Administrador restabelece conta elegível com justificativa; o sistema restaura acesso sem conceder privilégios novos.",
+        "P2: Administrador filtra contas sem alterar estado."
+      ],
+      "exc": [
+        "P4: Operação não autorizada, conta administrativa protegida ou falha de registro: o sistema recusa a alteração."
+      ],
+      "pre": "Existe conta elegível para ação administrativa.",
+      "post": "Estado da conta atualizado com registro de ação.",
+      "accept": "Conta suspensa não autentica; gestão não disponibiliza mensagens ou notas privadas.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-01",
+        "RN-12"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-38.md",
+      "primary": [
+        "AT-04"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 39,
+      "f": "F-39",
+      "rf": "RF-39",
+      "cdu": "CDU-39",
+      "name": "Analisar Solicitação de Perfil Docente",
+      "summary": "Autorizar ou recusar solicitação com base em critérios de verificação",
+      "nec": "NEC-10",
+      "actors": "AT-04",
+      "priority": "Essencial",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O administrador abre solicitações docentes.",
+        "O sistema apresenta pedidos pendentes e informações de comprovação autorizadas.",
+        "O administrador seleciona pedido, verifica os critérios e registra decisão de autorizar.",
+        "O sistema registra a decisão, atribui perfil docente efetivo e apresenta estado ao solicitante."
+      ],
+      "alt": [
+        "P3: Administrador recusa com justificativa; o sistema mantém perfil anterior e apresenta estado ao solicitante.",
+        "P3: Comprovação insuficiente: administrador mantém pendente e solicita complemento pelo registro do pedido."
+      ],
+      "exc": [
+        "P4: Pedido já decidido ou operação sem autorização: o sistema não modifica o perfil."
+      ],
+      "pre": "Existe solicitação pendente.",
+      "post": "Decisão auditável; autorização somente se critérios atendidos.",
+      "accept": "Somente administrador autorizado concede perfil docente; candidato não ganha permissão enquanto pendente.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-01",
+        "RN-02",
+        "RN-12"
+      ],
+      "freq": "Baixa",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-39.md",
+      "primary": [
+        "AT-04"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 40,
+      "f": "F-40",
+      "rf": "RF-40",
+      "cdu": "CDU-40",
+      "name": "Manter Catálogo de Locais",
+      "summary": "Cadastrar, atualizar e retirar locais recomendados e orientações do guia",
+      "nec": "NEC-05",
+      "actors": "AT-04",
+      "priority": "Essencial",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O administrador abre o catálogo de locais e orientações.",
+        "O sistema apresenta campos de nome, categoria, descrição, localização ou instrução, fonte e data de atualização.",
+        "O administrador preenche os dados e confirma.",
+        "O sistema valida campos, registra item e disponibiliza no guia."
+      ],
+      "alt": [
+        "P1: Administrador edita ou retira item; o sistema registra alteração e atualiza visibilidade.",
+        "P3: Cancelamento preserva catálogo."
+      ],
+      "exc": [
+        "P4: Fonte ou dados obrigatórios ausentes, ou falha de gravação: o sistema não publica."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Item cadastrado, atualizado ou retirado.",
+      "accept": "Somente itens ativos do catálogo aparecem no guia; referência e data permitem avaliar atualidade.",
+      "rnf": [
+        "RNF-08",
+        "RNF-18",
+        "RNF-20"
+      ],
+      "rules": [
+        "RN-11"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-40.md",
+      "primary": [
+        "AT-04"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 41,
+      "f": "F-41",
+      "rf": "RF-41",
+      "cdu": "CDU-41",
+      "name": "Manter Catálogos de Apoio",
+      "summary": "Manter áreas, interesses, categorias e referências de conteúdo para recomendações",
+      "nec": "NEC-06",
+      "actors": "AT-04",
+      "priority": "Importante",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O administrador abre catálogos de apoio.",
+        "O sistema apresenta áreas, interesses, categorias e referências de recomendações.",
+        "O administrador seleciona categoria e cadastra uma referência com título, tema e fonte.",
+        "O sistema valida unicidade e dados, registra a referência e a torna elegível às recomendações."
+      ],
+      "alt": [
+        "P1: Administrador edita ou inativa item; o sistema preserva vínculos históricos e retira item das novas sugestões.",
+        "P2: Administrador cadastra ou mantém área, interesse ou categoria."
+      ],
+      "exc": [
+        "P4: Duplicidade ou referência inválida: o sistema recusa o cadastro."
+      ],
+      "pre": "Não se aplica.",
+      "post": "Catálogo atualizado, sem perda indevida de referências existentes.",
+      "accept": "Item inativo deixa de aparecer em novas recomendações; categorias não são duplicadas.",
+      "rnf": [
+        "RNF-08",
+        "RNF-18",
+        "RNF-20"
+      ],
+      "rules": [
+        "RN-10",
+        "RN-11"
+      ],
+      "freq": "Média",
+      "value": "Médio",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-41.md",
+      "primary": [
+        "AT-04"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 42,
+      "f": "F-42",
+      "rf": "RF-42",
+      "cdu": "CDU-42",
+      "name": "Denunciar Conteúdo",
+      "summary": "Registrar denúncia de conteúdo ou comportamento acessível ao denunciante",
+      "nec": "NEC-10",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O usuário seleciona denunciar conteúdo ou comportamento que pode acessar.",
+        "O sistema apresenta categorias e campo para descrição da ocorrência.",
+        "O usuário informa motivo e confirma.",
+        "O sistema registra denúncia, referência da evidência necessária e estado pendente, sem divulgar a identidade do denunciante ao denunciado."
+      ],
+      "alt": [
+        "P3: O usuário cancela sem gerar denúncia.",
+        "P4: Denúncia já registrada pelo mesmo usuário sobre o mesmo item: o sistema informa estado existente."
+      ],
+      "exc": [
+        "P4: Conteúdo inacessível ou descrição inválida: o sistema recusa registro indevido."
+      ],
+      "pre": "Existe conteúdo ou comportamento identificável acessível ao ator.",
+      "post": "Denúncia pendente registrada.",
+      "accept": "Denúncia válida gera item para moderação e não concede acesso a informações privadas adicionais.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-18"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-42.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 43,
+      "f": "F-43",
+      "rf": "RF-43",
+      "cdu": "CDU-43",
+      "name": "Tratar Denúncias",
+      "summary": "Analisar evidências autorizadas, registrar decisão e aplicar medidas cabíveis",
+      "nec": "NEC-10",
+      "actors": "AT-04",
+      "priority": "Essencial",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O administrador abre a fila de denúncias.",
+        "O sistema apresenta denúncias pendentes com evidências autorizadas e histórico.",
+        "O administrador analisa a ocorrência, registra decisão fundamentada e seleciona medida cabível.",
+        "O sistema aplica a medida permitida, registra a decisão e atualiza o estado da denúncia."
+      ],
+      "alt": [
+        "P3: Sem infração, administrador arquiva com justificativa sem remover conteúdo.",
+        "P3: Evidência insuficiente: mantém pendente para análise complementar.",
+        "P3: Se a medida exigir suspensão de conta, registra a decisão de acesso conforme RN-12 e CDU-38."
+      ],
+      "exc": [
+        "P4: Ação sem autorização ou erro de persistência: o sistema não confirma a medida."
+      ],
+      "pre": "Existe denúncia registrada.",
+      "post": "Denúncia tratada ou mantida pendente; medida e justificativa registradas.",
+      "accept": "Moderação consegue tratar item denunciado sem abrir todas as mensagens privadas ou notas do denunciado.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18"
+      ],
+      "rules": [
+        "RN-04",
+        "RN-12",
+        "RN-18"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-43.md",
+      "primary": [
+        "AT-04"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 44,
+      "f": "F-44",
+      "rf": "RF-44",
+      "cdu": "CDU-44",
+      "name": "Bloquear Usuário",
+      "summary": "Bloquear usuário, encerrar conexão e impedir novas interações diretas; desfazer bloqueio",
+      "nec": "NEC-10",
+      "actors": "AT-07",
+      "priority": "Essencial",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O usuário abre perfil ou conversa de outro usuário.",
+        "O sistema apresenta opção de bloqueio.",
+        "O usuário seleciona bloquear e confirma.",
+        "O sistema registra bloqueio e impede novos pedidos de conexão e mensagens diretas entre os dois perfis."
+      ],
+      "alt": [
+        "P1: Usuário abre lista de bloqueios e remove um bloqueio; o sistema permite novas solicitações conforme demais regras, sem restaurar conexão automaticamente.",
+        "P3: Cancelamento não altera restrições."
+      ],
+      "exc": [
+        "P4: Bloqueio inválido, como o próprio usuário, ou falha de gravação: o sistema recusa a operação."
+      ],
+      "pre": "Outro perfil existente.",
+      "post": "Bloqueio ativo ou removido; conexões anteriores encerradas na ativação.",
+      "accept": "Usuário bloqueado não pode enviar novas mensagens; desbloquear não reativa vínculo automaticamente.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11"
+      ],
+      "rules": [
+        "RN-03",
+        "RN-17"
+      ],
+      "freq": "Média",
+      "value": "Alto",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-44.md",
+      "primary": [
+        "AT-07"
+      ],
+      "secondary": []
+    },
+    {
+      "n": 45,
+      "f": "F-45",
+      "rf": "RF-45",
+      "cdu": "CDU-45",
+      "name": "Tratar Solicitação de Exclusão de Conta",
+      "summary": "Executar ou encaminhar tratamento de dados conforme política de retenção",
+      "nec": "NEC-10",
+      "actors": "AT-04",
+      "priority": "Importante",
+      "module": "M06",
+      "screen": "administracao",
+      "main": [
+        "O administrador abre pedidos de exclusão.",
+        "O sistema apresenta pedidos pendentes e dados operacionais necessários, sem expor conteúdo privado desnecessário.",
+        "O administrador verifica identidade, obrigações de retenção e registra decisão de processamento.",
+        "O sistema encerra acesso, exclui ou anonimiza dados elegíveis, preserva apenas o necessário conforme política validada e registra conclusão."
+      ],
+      "alt": [
+        "P3: Política ou obrigação não definida: mantém pedido pendente e registra motivo, sem simular conclusão.",
+        "P3: Solicitação inválida: registra decisão de recusa e motivo conforme política aplicável."
+      ],
+      "exc": [
+        "P4: Erro de processamento: o sistema registra falha e não marca pedido concluído."
+      ],
+      "pre": "Existe pedido de exclusão; critérios de retenção aprovados são necessários para conclusão.",
+      "post": "Conta encerrada e tratamento registrado, ou pedido permanece pendente.",
+      "accept": "O pedido não é marcado concluído sem processamento efetivo; retenção deve ser justificada.",
+      "rnf": [
+        "RNF-08",
+        "RNF-11",
+        "RNF-18",
+        "RNF-22"
+      ],
+      "rules": [
+        "RN-12",
+        "RN-14"
+      ],
+      "freq": "Baixa",
+      "value": "Médio",
+      "phase": "E1 — núcleo",
+      "path": "casos-de-uso/M06/CDU-45.md",
+      "primary": [
+        "AT-04"
+      ],
+      "secondary": []
+    }
+  ]
+}

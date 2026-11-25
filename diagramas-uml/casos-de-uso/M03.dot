@@ -1,0 +1,14 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A3 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nProfessor"];
+A7 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Acadêmico"];
+subgraph cluster_s {label="UniShare — M03: Integração Cultural e Descoberta"; color="#5877a8"; style="rounded";
+CDU18 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-18\nConsultar Locais Recomendados"];
+CDU19 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-19\nConsultar Eventos e Oportunidades"];
+CDU20 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-20\nDivulgar Evento ou Oportunidade"];
+CDU21 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-21\nConsultar Recomendações"];
+}
+A7 -> CDU18 [dir=none];
+A7 -> CDU19 [dir=none];
+A3 -> CDU20 [dir=none];
+A7 -> CDU21 [dir=none];
+}

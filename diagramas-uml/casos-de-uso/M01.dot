@@ -1,0 +1,29 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A6 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nVisitante"];
+A7 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Acadêmico"];
+A8 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nEstudante"];
+A9 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator externo»\nServiço de E-mail"];
+A10 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Autenticado"];
+A11 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nCandidato a Professor"];
+subgraph cluster_s {label="UniShare — M01: Identidade e Perfis"; color="#5877a8"; style="rounded";
+CDU01 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-01\nCadastrar Conta"];
+CDU02 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-02\nAutenticar Usuário"];
+CDU03 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-03\nRecuperar Acesso à Conta"];
+CDU04 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-04\nEncerrar Sessão"];
+CDU05 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-05\nManter Perfil Acadêmico"];
+CDU06 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-06\nConsultar Perfil Acadêmico"];
+CDU07 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-07\nSolicitar Perfil Docente"];
+CDU08 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-08\nSolicitar Exclusão de Conta"];
+}
+A6 -> CDU01 [dir=none];
+A9 -> CDU01 [dir=none];
+A6 -> CDU02 [dir=none];
+A6 -> CDU03 [dir=none];
+A9 -> CDU03 [dir=none];
+A10 -> CDU04 [dir=none];
+A7 -> CDU05 [dir=none];
+A7 -> CDU06 [dir=none];
+A8 -> CDU07 [dir=none];
+A11 -> CDU07 [dir=none];
+A7 -> CDU08 [dir=none];
+}

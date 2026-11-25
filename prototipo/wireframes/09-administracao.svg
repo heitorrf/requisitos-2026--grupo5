@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#f4f4f4" stroke="#ccc"/>
+<text x="30" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#343434">UniShare / WF-09 — Administração</text>
+<text x="950" y="35" font-family="Arial, sans-serif" font-size="13" font-weight="normal" fill="#343434">Baixa fidelidade • dados ilustrativos</text>
+<rect x="25" y="55" width="1230" height="56" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="45" y="89" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#343434">UniShare</text>
+<rect x="270" y="66" width="635" height="34" rx="5" fill="#eee" stroke="#aaa"/>
+<text x="285" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#343434">Buscar pessoas, grupos e conteúdos…</text>
+<text x="1025" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#343434">Idioma  |  Perfil</text>
+<rect x="25" y="125" width="208" height="625" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="55" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Início</text>
+<text x="55" y="222" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Explorar</text>
+<text x="55" y="274" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Mensagens</text>
+<text x="55" y="326" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Grupos</text>
+<text x="55" y="378" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Turmas</text>
+<text x="55" y="430" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Eventos</text>
+<text x="55" y="482" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Perfil</text>
+<rect x="38" y="509" width="180" height="40" rx="5" fill="#dedede" stroke="#aaa"/>
+<text x="55" y="534" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#343434">Mais</text>
+<rect x="45" y="575" width="165" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="56" y="596" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Publicar</text>
+<rect x="248" y="125" width="1007" height="110" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Administração — acesso restrito</text>
+<path d="M264 169 L1239 169" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="187" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Usuários  |  Solicitações docentes  |  Catálogos  |  Denúncias  |  Exclusão</text>
+<rect x="248" y="250" width="680" height="470" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="279" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Fila de denúncias</text>
+<path d="M264 294 L912 294" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="312" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Item / motivo / data / estado</text>
+<path d="M264 330 L912 330" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="348" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Analisar denúncia e registrar decisão</text>
+<path d="M264 366 L912 366" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Consultar histórico autorizado</text>
+<path d="M264 402 L912 402" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="420" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Sem acesso indiscriminado a mensagens ou notas</text>
+<rect x="942" y="250" width="313" height="245" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="958" y="279" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Solicitações docentes</text>
+<path d="M958 294 L1239 294" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="312" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Candidato / comprovação</text>
+<path d="M958 330 L1239 330" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="348" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Autorizar ou recusar</text>
+<path d="M958 366 L1239 366" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="384" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Registrar decisão</text>
+<rect x="942" y="510" width="313" height="210" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="958" y="539" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Catálogos e contas</text>
+<path d="M958 554 L1239 554" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="572" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Manter locais e categorias</text>
+<path d="M958 590 L1239 590" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="608" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Suspender/restabelecer</text>
+<path d="M958 626 L1239 626" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="644" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Tratar exclusão</text>
+</svg>

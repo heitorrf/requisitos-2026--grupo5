@@ -1,0 +1,46 @@
+@startuml
+skinparam componentStyle uml2
+actor "Usuário" as U
+component "Interface web" as UI
+rectangle "Aplicação UniShare (API)" {
+ component "Identidade e Perfis" as M01
+ component "Rede Social e Comunicação" as M02
+ component "Integração Cultural e Descoberta" as M03
+ component "Gestão Acadêmica" as M04
+ component "Acessibilidade Linguística" as M05
+ component "Administração e Moderação" as M06
+ component "Persistência e auditoria" as P
+ component "Adaptador de tradução" as T
+ component "Adaptador de e-mail" as E
+}
+database "Banco de dados" as DB
+folder "Armazenamento de anexos" as FS
+component "Serviço de Tradução" as TS <<externo>>
+component "Serviço de E-mail" as ES <<externo>>
+U --> UI
+UI --> M01 : acesso / sessão
+UI --> M02 : social
+UI --> M03 : descoberta
+UI --> M04 : turmas
+UI --> M05 : idioma / tradução
+UI --> M06 : administração
+M02 ..> M01 : autorização
+M03 ..> M01
+M04 ..> M01
+M05 ..> M01
+M06 ..> M01
+M06 ..> M02 : moderação
+M06 ..> M03 : catálogos
+M01 --> P
+M02 --> P
+M03 --> P
+M04 --> P
+M05 --> P : preferência
+M06 --> P
+M05 --> T
+T --> TS : HTTPS
+M01 --> E
+E --> ES : HTTPS
+P --> DB
+P --> FS
+@enduml

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#f4f4f4" stroke="#ccc"/>
+<text x="30" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#343434">UniShare / WF-06 — Atividades e entregas</text>
+<text x="950" y="35" font-family="Arial, sans-serif" font-size="13" font-weight="normal" fill="#343434">Baixa fidelidade • dados ilustrativos</text>
+<rect x="25" y="55" width="1230" height="56" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="45" y="89" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#343434">UniShare</text>
+<rect x="270" y="66" width="635" height="34" rx="5" fill="#eee" stroke="#aaa"/>
+<text x="285" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#343434">Buscar pessoas, grupos e conteúdos…</text>
+<text x="1025" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#343434">Idioma  |  Perfil</text>
+<rect x="25" y="125" width="208" height="625" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="55" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Início</text>
+<text x="55" y="222" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Explorar</text>
+<text x="55" y="274" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Mensagens</text>
+<text x="55" y="326" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Grupos</text>
+<rect x="38" y="353" width="180" height="40" rx="5" fill="#dedede" stroke="#aaa"/>
+<text x="55" y="378" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#343434">Turmas</text>
+<text x="55" y="430" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Eventos</text>
+<text x="55" y="482" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Perfil</text>
+<text x="55" y="534" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Mais</text>
+<rect x="45" y="575" width="165" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="56" y="596" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Publicar</text>
+<rect x="248" y="125" width="1007" height="122" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Turmas / Engenharia de Software / Atividades</text>
+<path d="M264 169 L1239 169" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="187" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Atividade 2 — Modelagem UML</text>
+<rect x="248" y="260" width="1007" height="250" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="289" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Descrição e prazo</text>
+<path d="M264 304 L1239 304" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="322" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Entrega até 20/12 — pontuação máxima 10</text>
+<path d="M264 340 L1239 340" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="358" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Orientações de entrega</text>
+<path d="M264 376 L1239 376" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="394" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Consultar material relacionado</text>
+<rect x="248" y="525" width="1007" height="218" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="554" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Sua entrega</text>
+<path d="M264 569 L1239 569" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="587" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Arquivo anexado ou texto de resposta</text>
+<path d="M264 605 L1239 605" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="623" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Estado: entregue / data e horário</text>
+<path d="M264 641 L1239 641" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="659" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Feedback e nota quando disponibilizados</text>
+<rect x="1080" y="688" width="150" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="1091" y="709" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Enviar / atualizar</text>
+</svg>

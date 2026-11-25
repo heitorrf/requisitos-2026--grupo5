@@ -1,0 +1,17 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=BT, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A10 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Autenticado"];
+A7 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Acadêmico"];
+A8 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nEstudante"];
+A4 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nAdministrador da Plataforma"];
+A3 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nProfessor"];
+A11 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nCandidato a Professor"];
+A1 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nEstudante Local"];
+A2 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nEstudante Intercambista"];
+A7 -> A10 [arrowhead=empty];
+A4 -> A10 [arrowhead=empty];
+A8 -> A7 [arrowhead=empty];
+A3 -> A7 [arrowhead=empty];
+A11 -> A7 [arrowhead=empty];
+A1 -> A8 [arrowhead=empty];
+A2 -> A8 [arrowhead=empty];
+}

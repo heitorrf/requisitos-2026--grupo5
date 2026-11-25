@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#f4f4f4" stroke="#ccc"/>
+<text x="30" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#343434">UniShare / WF-10 — Acesso e cadastro</text>
+<text x="950" y="35" font-family="Arial, sans-serif" font-size="13" font-weight="normal" fill="#343434">Baixa fidelidade • dados ilustrativos</text>
+<rect x="48" y="100" width="570" height="610" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="64" y="129" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">UniShare</text>
+<path d="M64 144 L602 144" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="64" y="162" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Conectando pessoas.</text>
+<path d="M64 180 L602 180" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="64" y="198" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Compartilhando conhecimento.</text>
+<path d="M64 216 L602 216" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="64" y="234" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Integração cultural</text>
+<path d="M64 252 L602 252" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="64" y="270" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Colaboração acadêmica</text>
+<path d="M64 288 L602 288" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="64" y="306" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Tradução sob demanda</text>
+<rect x="650" y="100" width="580" height="610" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="666" y="129" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Acesso</text>
+<path d="M666 144 L1214 144" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="666" y="162" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">E-mail</text>
+<path d="M666 180 L1214 180" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="666" y="198" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Senha</text>
+<path d="M666 216 L1214 216" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="666" y="234" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Esqueci minha senha</text>
+<path d="M666 252 L1214 252" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="666" y="270" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Ainda não tem uma conta?</text>
+<rect x="680" y="360" width="500" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="691" y="381" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Entrar</text>
+<rect x="680" y="430" width="500" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="691" y="451" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Criar conta</text>
+<rect x="680" y="500" width="200" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="691" y="521" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Português / English</text>
+</svg>

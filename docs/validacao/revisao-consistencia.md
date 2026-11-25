@@ -1,5 +1,7 @@
 # Revisão de Consistência UML e SRS — UniShare
 
+<p align="center"><img src="../assets/logo-unishare.png" alt="Logomarca UniShare" width="360"></p>
+
 **Grupo 5 · Versão 1.1 · 25/11/2026**
 
 > Proposta acadêmica para revisão; não representa validação por usuários reais.

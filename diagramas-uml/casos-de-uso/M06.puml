@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor "Administrador da Plataforma" as A4
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+rectangle "UniShare — M06: Administração e Moderação" {
+  usecase "CDU-38\nGerenciar Usuários e Acessos" as CDU38
+  usecase "CDU-39\nAnalisar Solicitação de Perfil Docente" as CDU39
+  usecase "CDU-40\nManter Catálogo de Locais" as CDU40
+  usecase "CDU-41\nManter Catálogos de Apoio" as CDU41
+  usecase "CDU-42\nDenunciar Conteúdo" as CDU42
+  usecase "CDU-43\nTratar Denúncias" as CDU43
+  usecase "CDU-44\nBloquear Usuário" as CDU44
+  usecase "CDU-45\nTratar Solicitação de Exclusão de Conta" as CDU45
+}
+A4 -- CDU38
+A4 -- CDU39
+A4 -- CDU40
+A4 -- CDU41
+A7 -- CDU42
+A4 -- CDU43
+A7 -- CDU44
+A4 -- CDU45
+@enduml

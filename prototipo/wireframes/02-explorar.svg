@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+<rect x="0" y="0" width="1280" height="800" rx="0" fill="#f4f4f4" stroke="#ccc"/>
+<text x="30" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#343434">UniShare / WF-02 — Explorar e descobrir</text>
+<text x="950" y="35" font-family="Arial, sans-serif" font-size="13" font-weight="normal" fill="#343434">Baixa fidelidade • dados ilustrativos</text>
+<rect x="25" y="55" width="1230" height="56" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="45" y="89" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#343434">UniShare</text>
+<rect x="270" y="66" width="635" height="34" rx="5" fill="#eee" stroke="#aaa"/>
+<text x="285" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#343434">Buscar pessoas, grupos e conteúdos…</text>
+<text x="1025" y="88" font-family="Arial, sans-serif" font-size="14" font-weight="normal" fill="#343434">Idioma  |  Perfil</text>
+<rect x="25" y="125" width="208" height="625" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="55" y="170" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Início</text>
+<rect x="38" y="197" width="180" height="40" rx="5" fill="#dedede" stroke="#aaa"/>
+<text x="55" y="222" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#343434">Explorar</text>
+<text x="55" y="274" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Mensagens</text>
+<text x="55" y="326" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Grupos</text>
+<text x="55" y="378" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Turmas</text>
+<text x="55" y="430" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Eventos</text>
+<text x="55" y="482" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Perfil</text>
+<text x="55" y="534" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#343434">Mais</text>
+<rect x="45" y="575" width="165" height="32" rx="4" fill="#dedede" stroke="#999"/>
+<text x="56" y="596" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#343434">Publicar</text>
+<rect x="248" y="125" width="680" height="115" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Explorar</text>
+<path d="M264 169 L912 169" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="187" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Tudo  |  Pessoas  |  Grupos  |  Eventos  |  Locais</text>
+<rect x="248" y="252" width="680" height="155" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="281" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Guia de adaptação</text>
+<path d="M264 296 L912 296" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="314" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Informações de campus e cidade</text>
+<path d="M264 332 L912 332" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="350" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Conheça locais e orientações</text>
+<rect x="248" y="420" width="680" height="305" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="264" y="449" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Pessoas e conteúdos recomendados</text>
+<path d="M264 464 L912 464" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="482" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Perfil / curso / idiomas — Conectar</text>
+<path d="M264 500 L912 500" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="518" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Grupo — Participar</text>
+<path d="M264 536 L912 536" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="554" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Livro / curso / evento por interesse</text>
+<path d="M264 572 L912 572" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="264" y="590" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Oportunidade — detalhes</text>
+<rect x="942" y="125" width="313" height="280" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="958" y="154" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Eventos</text>
+<path d="M958 169 L1239 169" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="187" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Data / local</text>
+<path d="M958 205 L1239 205" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="223" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Evento acadêmico</text>
+<path d="M958 241 L1239 241" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="259" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Consultar detalhes</text>
+<rect x="942" y="420" width="313" height="305" rx="5" fill="#fff" stroke="#aaa"/>
+<text x="958" y="449" font-family="Arial, sans-serif" font-size="19" font-weight="bold" fill="#343434">Locais recomendados</text>
+<path d="M958 464 L1239 464" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="482" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Biblioteca</text>
+<path d="M958 500 L1239 500" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="518" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Centro de convivência</text>
+<path d="M958 536 L1239 536" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="554" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Ponto turístico</text>
+<path d="M958 572 L1239 572" stroke="#b0b0b0" stroke-width="1.5"/>
+<text x="958" y="590" font-family="Arial, sans-serif" font-size="15" font-weight="normal" fill="#343434">Origem e atualização</text>
+</svg>

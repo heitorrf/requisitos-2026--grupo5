@@ -1,0 +1,54 @@
+@startuml
+left to right direction
+actor "Professor" as A3
+actor "Administrador da Plataforma" as A4
+actor "Serviço de Tradução" as A5 <<sistema externo>>
+actor "Visitante" as A6
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+actor "Estudante" as A8 <<abstrato>>
+actor "Serviço de E-mail" as A9 <<sistema externo>>
+actor "Usuário Autenticado" as A10 <<abstrato>>
+rectangle "UniShare — principais objetivos" {
+usecase "CDU-01\nCadastrar Conta" as C1
+usecase "CDU-02\nAutenticar Usuário" as C2
+usecase "CDU-09\nPesquisar Usuários" as C9
+usecase "CDU-10\nGerenciar Conexões" as C10
+usecase "CDU-11\nTrocar Mensagens" as C11
+usecase "CDU-13\nManter Publicação" as C13
+usecase "CDU-17\nParticipar de Grupo de Estudo" as C17
+usecase "CDU-18\nConsultar Locais Recomendados" as C18
+usecase "CDU-19\nConsultar Eventos e Oportunidades" as C19
+usecase "CDU-20\nDivulgar Evento ou Oportunidade" as C20
+usecase "CDU-22\nManter Turma" as C22
+usecase "CDU-24\nSolicitar Participação em Turma" as C24
+usecase "CDU-30\nSubmeter Atividade" as C30
+usecase "CDU-31\nAvaliar Entregas" as C31
+usecase "CDU-32\nConsultar Desempenho Individual" as C32
+usecase "CDU-36\nDefinir Idioma da Interface" as C36
+usecase "CDU-37\nTraduzir Conteúdo Textual" as C37
+usecase "CDU-39\nAnalisar Solicitação de Perfil Docente" as C39
+usecase "CDU-43\nTratar Denúncias" as C43
+}
+A6 -- C1
+A9 -- C1
+A6 -- C2
+A7 -- C9
+A7 -- C10
+A7 -- C11
+A7 -- C13
+A7 -- C17
+A7 -- C18
+A7 -- C19
+A3 -- C20
+A3 -- C22
+A8 -- C24
+A8 -- C30
+A3 -- C31
+A8 -- C32
+A6 -- C36
+A10 -- C36
+A7 -- C37
+A5 -- C37
+A4 -- C39
+A4 -- C43
+@enduml

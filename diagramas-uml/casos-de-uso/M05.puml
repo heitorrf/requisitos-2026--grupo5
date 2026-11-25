@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+actor "Serviço de Tradução" as A5 <<sistema externo>>
+actor "Visitante" as A6
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+actor "Usuário Autenticado" as A10 <<abstrato>>
+rectangle "UniShare — M05: Acessibilidade Linguística" {
+  usecase "CDU-36\nDefinir Idioma da Interface" as CDU36
+  usecase "CDU-37\nTraduzir Conteúdo Textual" as CDU37
+}
+A6 -- CDU36
+A10 -- CDU36
+A7 -- CDU37
+A5 -- CDU37
+@enduml

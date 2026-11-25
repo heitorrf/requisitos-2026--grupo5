@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+actor "Visitante" as A6
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+actor "Estudante" as A8 <<abstrato>>
+actor "Serviço de E-mail" as A9 <<sistema externo>>
+actor "Usuário Autenticado" as A10 <<abstrato>>
+actor "Candidato a Professor" as A11
+rectangle "UniShare — M01: Identidade e Perfis" {
+  usecase "CDU-01\nCadastrar Conta" as CDU01
+  usecase "CDU-02\nAutenticar Usuário" as CDU02
+  usecase "CDU-03\nRecuperar Acesso à Conta" as CDU03
+  usecase "CDU-04\nEncerrar Sessão" as CDU04
+  usecase "CDU-05\nManter Perfil Acadêmico" as CDU05
+  usecase "CDU-06\nConsultar Perfil Acadêmico" as CDU06
+  usecase "CDU-07\nSolicitar Perfil Docente" as CDU07
+  usecase "CDU-08\nSolicitar Exclusão de Conta" as CDU08
+}
+A6 -- CDU01
+A9 -- CDU01
+A6 -- CDU02
+A6 -- CDU03
+A9 -- CDU03
+A10 -- CDU04
+A7 -- CDU05
+A7 -- CDU06
+A8 -- CDU07
+A11 -- CDU07
+A7 -- CDU08
+@enduml

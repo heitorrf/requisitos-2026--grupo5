@@ -1,7 +1,6 @@
-[01-visao-demanda.md](https://github.com/user-attachments/files/35433921/01-visao-demanda.md)
 # Visão da Demanda (VD) — UniShare
 
-<p align="center"><img src="assets/logo-unishare.png" alt="Logomarca UniShare" width="600"></p>
+<p align="center"><img src="assets/logo-unishare.png" alt="Logomarca UniShare" width="360"></p>
 
 **UniShare — Rede Social Acadêmica Internacional**
 

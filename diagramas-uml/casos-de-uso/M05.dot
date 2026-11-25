@@ -1,0 +1,14 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A5 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator externo»\nServiço de Tradução"];
+A6 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nVisitante"];
+A7 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Acadêmico"];
+A10 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Autenticado"];
+subgraph cluster_s {label="UniShare — M05: Acessibilidade Linguística"; color="#5877a8"; style="rounded";
+CDU36 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-36\nDefinir Idioma da Interface"];
+CDU37 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-37\nTraduzir Conteúdo Textual"];
+}
+A6 -> CDU36 [dir=none];
+A10 -> CDU36 [dir=none];
+A7 -> CDU37 [dir=none];
+A5 -> CDU37 [dir=none];
+}

@@ -1,0 +1,22 @@
+@startuml
+node "Dispositivo do usuário" as C {
+ artifact "Navegador web" as B
+}
+node "Servidor de aplicação" as S {
+ artifact "Interface web (HTML/CSS/JS)" as UI
+ artifact "API UniShare — M01 a M06" as API
+ artifact "Adaptadores de tradução e e-mail" as AD
+}
+node "Servidor de dados" as DS {
+ database "Banco de dados" as DB
+ artifact "Armazenamento de anexos" as FS
+}
+cloud "Serviço de Tradução" as T
+cloud "Serviço de E-mail" as E
+B -- S : HTTPS
+S -- DS : conexão privada autenticada
+S -- T : HTTPS / texto mínimo
+S -- E : HTTPS / mensagem transacional
+UI ..> API : requisições
+API ..> AD
+@enduml

@@ -1,5 +1,6 @@
-[requisitos-nao-funcionais.md](https://github.com/user-attachments/files/35434120/requisitos-nao-funcionais.md)
 # Requisitos Não Funcionais — UniShare
+
+<p align="center"><img src="../assets/logo-unishare.png" alt="Logomarca UniShare" width="360"></p>
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
 

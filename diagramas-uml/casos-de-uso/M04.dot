@@ -1,0 +1,38 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A3 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nProfessor"];
+A8 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nEstudante"];
+subgraph cluster_s {label="UniShare — M04: Gestão Acadêmica"; color="#5877a8"; style="rounded";
+CDU22 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-22\nManter Turma"];
+CDU23 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-23\nConsultar Turmas"];
+CDU24 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-24\nSolicitar Participação em Turma"];
+CDU25 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-25\nGerenciar Participantes da Turma"];
+CDU26 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-26\nManter Material Acadêmico"];
+CDU27 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-27\nConsultar Materiais Acadêmicos"];
+CDU28 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-28\nManter Atividade"];
+CDU29 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-29\nConsultar Atividades"];
+CDU30 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-30\nSubmeter Atividade"];
+CDU31 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-31\nAvaliar Entregas"];
+CDU32 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-32\nConsultar Desempenho Individual"];
+CDU33 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-33\nAcompanhar Desempenho da Turma"];
+CDU34 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-34\nManter Comunicado"];
+CDU35 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-35\nConsultar Comunicados"];
+}
+A3 -> CDU22 [dir=none];
+A8 -> CDU23 [dir=none];
+A3 -> CDU23 [dir=none];
+A8 -> CDU24 [dir=none];
+A3 -> CDU25 [dir=none];
+A3 -> CDU26 [dir=none];
+A8 -> CDU27 [dir=none];
+A3 -> CDU27 [dir=none];
+A3 -> CDU28 [dir=none];
+A8 -> CDU29 [dir=none];
+A3 -> CDU29 [dir=none];
+A8 -> CDU30 [dir=none];
+A3 -> CDU31 [dir=none];
+A8 -> CDU32 [dir=none];
+A3 -> CDU33 [dir=none];
+A3 -> CDU34 [dir=none];
+A8 -> CDU35 [dir=none];
+A3 -> CDU35 [dir=none];
+}

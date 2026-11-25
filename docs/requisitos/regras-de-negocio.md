@@ -1,5 +1,6 @@
-[regras-de-negocio.md](https://github.com/user-attachments/files/35434134/regras-de-negocio.md)
 # Regras de Negócio — UniShare
+
+<p align="center"><img src="../assets/logo-unishare.png" alt="Logomarca UniShare" width="360"></p>
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
 

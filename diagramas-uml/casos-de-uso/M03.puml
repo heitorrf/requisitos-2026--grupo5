@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+actor "Professor" as A3
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+rectangle "UniShare — M03: Integração Cultural e Descoberta" {
+  usecase "CDU-18\nConsultar Locais Recomendados" as CDU18
+  usecase "CDU-19\nConsultar Eventos e Oportunidades" as CDU19
+  usecase "CDU-20\nDivulgar Evento ou Oportunidade" as CDU20
+  usecase "CDU-21\nConsultar Recomendações" as CDU21
+}
+A7 -- CDU18
+A7 -- CDU19
+A3 -- CDU20
+A7 -- CDU21
+@enduml

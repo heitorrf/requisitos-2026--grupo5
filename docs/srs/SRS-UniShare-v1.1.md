@@ -1,5 +1,6 @@
-[SRS-UniShare-v1.1.md](https://github.com/user-attachments/files/35434187/SRS-UniShare-v1.1.md)
 # Especificação de Requisitos de Software (SRS) — UniShare
+
+<p align="center"><img src="../assets/logo-unishare.png" alt="Logomarca UniShare" width="360"></p>
 
 **Grupo 5 · Versão 1.1 · 25/11/2026**
 

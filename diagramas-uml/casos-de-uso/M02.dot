@@ -1,0 +1,23 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+A7 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator abstrato»\nUsuário Acadêmico"];
+subgraph cluster_s {label="UniShare — M02: Rede Social e Comunicação"; color="#5877a8"; style="rounded";
+CDU09 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-09\nPesquisar Usuários"];
+CDU10 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-10\nGerenciar Conexões"];
+CDU11 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-11\nTrocar Mensagens"];
+CDU12 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-12\nConsultar Publicações"];
+CDU13 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-13\nManter Publicação"];
+CDU14 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-14\nInteragir com Publicações"];
+CDU15 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-15\nManter Grupo de Estudo"];
+CDU16 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-16\nPesquisar Grupos de Estudo"];
+CDU17 [shape=ellipse,style=filled,fillcolor="#f4f7fc",label="CDU-17\nParticipar de Grupo de Estudo"];
+}
+A7 -> CDU09 [dir=none];
+A7 -> CDU10 [dir=none];
+A7 -> CDU11 [dir=none];
+A7 -> CDU12 [dir=none];
+A7 -> CDU13 [dir=none];
+A7 -> CDU14 [dir=none];
+A7 -> CDU15 [dir=none];
+A7 -> CDU16 [dir=none];
+A7 -> CDU17 [dir=none];
+}

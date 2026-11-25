@@ -1,0 +1,25 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+U [shape=box,label="«ator»\nUsuário"]; UI [shape=component,label="Interface web",style=filled,fillcolor="#e8eef8"];
+subgraph cluster_api {label="UniShare — Aplicação / API"; color="#5877a8"; style=rounded;
+M01 [shape=component,label="M01\nIdentidade e Perfis",style=filled,fillcolor="#f4f7fc"];
+M02 [shape=component,label="M02\nRede Social e Comunicação",style=filled,fillcolor="#f4f7fc"];
+M03 [shape=component,label="M03\nIntegração Cultural e Descoberta",style=filled,fillcolor="#f4f7fc"];
+M04 [shape=component,label="M04\nGestão Acadêmica",style=filled,fillcolor="#f4f7fc"];
+M05 [shape=component,label="M05\nAcessibilidade Linguística",style=filled,fillcolor="#f4f7fc"];
+M06 [shape=component,label="M06\nAdministração e Moderação",style=filled,fillcolor="#f4f7fc"];
+P [shape=component,label="Persistência e auditoria"]; T [shape=component,label="Adaptador de tradução"]; E [shape=component,label="Adaptador de e-mail"]; }
+DB [shape=cylinder,label="Banco de dados"]; FS [shape=folder,label="Armazenamento\nde anexos"]; TS [shape=component,label="«externo»\nServiço de Tradução"]; ES [shape=component,label="«externo»\nServiço de E-mail"];
+U -> UI;
+UI -> M01; M01 -> P;
+UI -> M02; M02 -> P;
+UI -> M03; M03 -> P;
+UI -> M04; M04 -> P;
+UI -> M05; M05 -> P;
+UI -> M06; M06 -> P;
+M02 -> M01 [style=dashed,label="autorização"];
+M03 -> M01 [style=dashed,label="autorização"];
+M04 -> M01 [style=dashed,label="autorização"];
+M05 -> M01 [style=dashed,label="autorização"];
+M06 -> M01 [style=dashed,label="autorização"];
+M06 -> M02 [style=dashed,label="moderação"]; M06 -> M03 [style=dashed,label="catálogos"]; M05 -> T; T -> TS [label="HTTPS"]; M01 -> E; E -> ES [label="HTTPS"]; P -> DB; P -> FS;
+}

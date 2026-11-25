@@ -1,5 +1,6 @@
-[02-stakeholders.md](https://github.com/user-attachments/files/35434035/02-stakeholders.md)
 # Identificação de Stakeholders — UniShare
+
+<p align="center"><img src="assets/logo-unishare.png" alt="Logomarca UniShare" width="360"></p>
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
 

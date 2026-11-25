@@ -1,0 +1,19 @@
+digraph G { graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", rankdir=LR, nodesep="0.23", ranksep="0.6"]; node [fontname="DejaVu Sans", fontsize=11, color="#354c75"]; edge [fontname="DejaVu Sans", color="#64748b", fontsize=10];
+U [shape=box,style="rounded,filled",fillcolor="#dbeafe",label="UniShare"];
+A1 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nEstudante Local"];
+A1 -> U [dir=both];
+A2 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nEstudante Intercambista"];
+A2 -> U [dir=both];
+A3 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nProfessor"];
+A3 -> U [dir=both];
+A4 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nAdministrador da Plataforma"];
+A4 -> U [dir=both];
+A6 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nVisitante"];
+A6 -> U [dir=both];
+A11 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator»\nCandidato a Professor"];
+A11 -> U [dir=both];
+A5 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator externo»\nServiço de Tradução"];
+U -> A5 [dir=both];
+A9 [shape=box,style="rounded,filled",fillcolor="#e8eef8",label="«ator externo»\nServiço de E-mail"];
+U -> A9 [dir=both];
+}

@@ -1,0 +1,18 @@
+@startuml
+top to bottom direction
+actor "Usuário Autenticado" as A10 <<abstrato>>
+actor "Usuário Acadêmico" as A7 <<abstrato>>
+actor "Estudante" as A8 <<abstrato>>
+actor "Administrador da Plataforma" as A4
+actor "Professor" as A3
+actor "Candidato a Professor" as A11
+actor "Estudante Local" as A1
+actor "Estudante Intercambista" as A2
+A10 <|-- A7
+A10 <|-- A4
+A7 <|-- A8
+A7 <|-- A3
+A7 <|-- A11
+A8 <|-- A1
+A8 <|-- A2
+@enduml
