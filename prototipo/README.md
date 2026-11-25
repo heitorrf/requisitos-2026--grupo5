@@ -50,6 +50,3 @@ flowchart LR
 | Todas | Datas, instituições, nomes, quantidades e fotos | Dados demonstrativos, sem comprovação de vínculo ou validação real. A logomarca dos mockups é uma simplificação visual. |
 
 Os wireframes usam os comportamentos previstos no SRS e são a referência estrutural quando houver divergência. Para futura implementação, os mockups devem ser revisados para remover os elementos fora do escopo.
-## Situação da P2
-Este pacote contém **somente imagens** conforme a orientação do grupo. O enunciado original do LAPIS pede também protótipo navegável e link no AVA. A dispensa não foi documentada; confirmar com o professor antes de considerar essa issue concluída. Não há GitHub Pages, código do protótipo nem teste de interação neste pacote.
-[SRS](../docs/srs/SRS-UniShare-v1.1.md) · [Revisão de consistência](../docs/validacao/revisao-consistencia.md)
