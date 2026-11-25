@@ -1,3 +1,4 @@
+[requisitos-funcionais.md](https://github.com/user-attachments/files/35434109/requisitos-funcionais.md)
 # Requisitos Funcionais — UniShare
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
@@ -89,4 +90,4 @@ Cada RF mantém correspondência numérica com a funcionalidade F e o CDU. Os co
 | RF-44 | O sistema deverá oferecer aos atores autorizados a capacidade de bloquear usuário, encerrar conexão e impedir novas interações diretas; desfazer bloqueio. | NEC-10 / F-44 | AT-07 | Essencial | [CDU-44](../casos-de-uso/M06/CDU-44.md) | Usuário bloqueado não pode enviar novas mensagens; desbloquear não reativa vínculo automaticamente. |
 | RF-45 | O sistema deverá oferecer aos atores autorizados a capacidade de executar ou encaminhar tratamento de dados conforme política de retenção. | NEC-10 / F-45 | AT-04 | Importante | [CDU-45](../casos-de-uso/M06/CDU-45.md) | O pedido não é marcado concluído sem processamento efetivo; retenção deve ser justificada. |
 
-[Visão](../01-visao-demanda.md) · [Regras de negócio](regras-de-negocio.md) · [SRS](../srs/SRS-UniShare-v1.0.md)
+[Visão](../01-visao-demanda.md) · [Regras de negócio](regras-de-negocio.md) · [SRS](../srs/SRS-UniShare-v1.1.md)
