@@ -1,3 +1,4 @@
+[matriz-rastreabilidade.md](https://github.com/user-attachments/files/35434261/matriz-rastreabilidade.md)
 # Matriz de Rastreabilidade — UniShare
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
