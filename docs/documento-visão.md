@@ -2,7 +2,7 @@
 
 # Visão da Demanda (VD) — UniShare
 
-![Logomarca UniShare](assets/Logo-Unishare.png)
+![Logomarca UniShare](assets/logo-unishare.png)
 
 **UniShare — Rede Social Acadêmica Internacional**
 
