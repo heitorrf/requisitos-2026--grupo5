@@ -1,6 +1,7 @@
+[SRS-UniShare-v1.1.md](https://github.com/user-attachments/files/35434187/SRS-UniShare-v1.1.md)
 # Especificação de Requisitos de Software (SRS) — UniShare
 
-**Grupo 5 · Versão 1.0 · 25/11/2026**
+**Grupo 5 · Versão 1.1 · 25/11/2026**
 
 > Proposta acadêmica para revisão; não representa validação por usuários reais.
 
@@ -9,6 +10,7 @@
 | Data | Versão | Descrição | Autor |
 | --- | --- | --- | --- |
 | 25/11/2026 | 1.0 | Consolidação e alinhamento com a visão 4.0 | Grupo 5 — proposta |
+| 25/11/2026 | 1.1 | Referências visuais e situação de prototipação atualizadas; escopo funcional preservado | Grupo 5 — proposta |
 
 ## 1. Introdução
 
@@ -26,7 +28,7 @@ Consultar [glossário](../requisitos/glossario.md). Identificadores NEC, F, RF, 
 
 ### 1.4 Referências
 
-- [Visão da Demanda 4.0](../01-visao-demanda.md).
+- [Visão da Demanda 4.1](../01-visao-demanda.md).
 - [LAPIS — guia e templates](https://github.com/marcelobezerra-dotcom/Lapis-unifor).
 - Orientações de P1 e P2 apresentadas pelo professor; a referência IEEE 830 é a estrutura solicitada na atividade, não certificação de conformidade normativa.
 
@@ -808,4 +810,4 @@ Trata-se de requisitos lógicos, não esquema físico definitivo. Retenção e m
 
 ### 3.6 Validação e rastreabilidade
 
-Ver [matriz de rastreabilidade](../validacao/matriz-rastreabilidade.md), [revisão de consistência](../validacao/revisao-consistencia.md), [diagramas](../../diagramas-uml/README.md) e [wireframes](../../wireframes/README.md). Os critérios de aceitação são propostas verificáveis para futura implementação. O protótipo demonstra navegação e cenários representativos, sem comprovar os RNFs de produção.
+Ver [matriz de rastreabilidade](../validacao/matriz-rastreabilidade.md), [revisão de consistência](../validacao/revisao-consistencia.md), [diagramas](../../diagramas-uml/README.md) e [wireframes e mockups](../../prototipo/README.md). Os critérios de aceitação são propostas verificáveis para futura implementação. Os mockups e wireframes são imagens estáticas e demonstram apenas a estrutura e cenários representativos, não navegação, execução ou RNFs de produção. A exigência de protótipo navegável consta no enunciado original; sua dispensa deve ser confirmada.
