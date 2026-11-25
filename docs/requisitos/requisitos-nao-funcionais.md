@@ -1,3 +1,4 @@
+[requisitos-nao-funcionais.md](https://github.com/user-attachments/files/35434120/requisitos-nao-funcionais.md)
 # Requisitos Não Funcionais — UniShare
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
