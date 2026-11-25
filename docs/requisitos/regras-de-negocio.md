@@ -1,3 +1,4 @@
+[regras-de-negocio.md](https://github.com/user-attachments/files/35434134/regras-de-negocio.md)
 # Regras de Negócio — UniShare
 
 **Grupo 5 · Versão 1.0 · 25/11/2026**
